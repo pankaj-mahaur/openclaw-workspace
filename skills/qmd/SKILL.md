@@ -36,17 +36,24 @@ qmd context add qmd://notes "Description of this collection"   # optional
 qmd embed                                                         # enable semantic/hybrid search
 ```
 
+## Low-token defaults (important)
+
+- Start with `qmd search "query" -n 5 --files` to shortlist docs with minimal output.
+- If snippets are needed, use `--json` with small `-n` (5 or less).
+- Avoid `--full` unless the user explicitly asks for full document content.
+- After shortlist, fetch only selected docs with `qmd get`.
+- Use `vsearch/query` only when keyword search misses.
+
 ## Common commands
 
 ```bash
-qmd search "query"
-qmd search "query" -c notes
-qmd search "query" -n 10
-qmd search "query" --json
+qmd search "query" -n 5 --files
+qmd search "query" -c notes -n 5 --files
+qmd search "query" -n 5 --json
 qmd search "query" --all --files --min-score 0.3
 
-qmd vsearch "query"
-qmd query "query"
+qmd vsearch "query" -n 5 --files
+qmd query "query" -n 5 --json
 
 qmd get "path/to/file.md"
 qmd get "#docid"
