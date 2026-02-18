@@ -1,40 +1,19 @@
 # TOOLS.md - Local Notes
 
-Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
+## Git / GitHub
 
-## What Goes Here
+- **Repo:** `git@github.com:pankaj-mahaur/openclaw-workspace.git`
+- **Branch:** `main`
+- **SSH key:** `/root/.ssh/id_openclaw` (ed25519, added as deploy key with write access)
+- **Rule:** This repo is ONLY for workspace files — SOUL.md, AGENTS.md, MEMORY.md, notes/, skills/, config files.
+  Never push project code (Ayurnod or anything else) here.
+- **Remote:** already set to SSH
 
-Things like:
+## Projects
 
-- Camera names and locations
-- SSH hosts and aliases
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
+- **Ayurnod** — AI health translator app (separate repo: `pankaj-mahaur/AyurNod`)
 
-## Examples
+## User
 
-```markdown
-### Cameras
-
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
-
-### SSH
-
-- home-server → 192.168.1.100, user: admin
-
-### TTS
-
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
-```
-
-## Why Separate?
-
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
-
----
-
-Add whatever helps you do your job. This is your cheat sheet.
+- **Name:** PhanX
+- **My name:** Paplu
