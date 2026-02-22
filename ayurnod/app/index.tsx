@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useAppStore } from '../lib/store';
 import { useRouter } from 'expo-router';
+import ResponsiveTextInput from '../components/ResponsiveTextInput';
+import ResponsiveButton from '../components/ResponsiveButton';
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -19,16 +21,18 @@ export default function HomeScreen() {
       <Text style={styles.title}>Ayurnod - AI Health Translator</Text>
       <Text style={styles.subtitle}>Enter your symptoms (one per line)</Text>
 
-      <TextInput
-        style={styles.input}
-        multiline
-        numberOfLines={4}
+      <ResponsiveTextInput
         placeholder="e.g., Headache, fatigue, joint pain..."
         value={input}
         onChangeText={setInput}
+        multiline
+        numberOfLines={4}
       />
 
-      <Button title="Add Symptom" onPress={handleAdd} />
+      <ResponsiveButton
+        title="Add Symptom"
+        onPress={handleAdd}
+      />
 
       <View style={styles.list}>
         {symptoms.map((s) => (
@@ -39,7 +43,10 @@ export default function HomeScreen() {
       </View>
 
       {symptoms.length > 0 && (
-        <Button title="Continue →" onPress={() => router.push('/explain')} />
+        <ResponsiveButton
+          title="Continue →"
+          onPress={() => router.push('/explain')}
+        />
       )}
     </ScrollView>
   );

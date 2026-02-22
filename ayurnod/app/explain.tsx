@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ScrollView, Alert } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Alert } from 'react-native';
 import { useAppStore } from '../lib/store';
+import ResponsiveTextInput from '../components/ResponsiveTextInput';
+import ResponsiveButton from '../components/ResponsiveButton';
 
 export default function ExplainScreen() {
   const { labParameters, addLabParameter, symptoms } = useAppStore();
@@ -37,27 +39,27 @@ export default function ExplainScreen() {
       <Text style={styles.title}>Lab Entry & Explanation</Text>
       <Text style={styles.subtitle}>Enter lab parameters one by one</Text>
 
-      <TextInput
-        style={styles.input}
+      <ResponsiveTextInput
         placeholder="Parameter name (e.g., Hemoglobin)"
         value={name}
         onChangeText={setName}
       />
-      <TextInput
-        style={styles.input}
+      <ResponsiveTextInput
         placeholder="Value (e.g., 12.5)"
         value={value}
         onChangeText={setValue}
         keyboardType="numeric"
       />
-      <TextInput
-        style={styles.input}
+      <ResponsiveTextInput
         placeholder="Unit (e.g., g/dL)"
         value={unit}
         onChangeText={setUnit}
       />
 
-      <Button title="Add Lab Parameter" onPress={handleAddLab} />
+      <ResponsiveButton
+        title="Add Lab Parameter"
+        onPress={handleAddLab}
+      />
 
       <View style={styles.list}>
         {labParameters.map((l) => (
@@ -68,7 +70,10 @@ export default function ExplainScreen() {
       </View>
 
       {labParameters.length > 0 && (
-        <Button title="Get AI Explanation" onPress={handleGetExplanation} />
+        <ResponsiveButton
+          title="Get AI Explanation"
+          onPress={handleGetExplanation}
+        />
       )}
 
       <View style={styles.section}>

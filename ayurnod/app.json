@@ -24,10 +24,15 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "history": {
+        "type": "browser"
+      }
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "web.config": "./web.config.js"
   }
 }
