@@ -15,3 +15,4 @@
 ## Preferences / Operating Notes
 - Keep workspace continuity in files (`memory/YYYY-MM-DD.md` + this file).
 - Use careful commits with clear messages before pushing.
+- For **AyurNod** work: always follow a professional and organized workflow (clear plan, clean branch hygiene, meaningful commits, orderly execution).
