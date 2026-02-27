@@ -13,7 +13,8 @@ Before doing anything else:
 1. Read `SOUL.md` — this is who you are
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+4. If today's daily file is missing, create `memory/YYYY-MM-DD.md` before continuing
+5. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 
 Don't ask permission. Just do it.
 
@@ -21,8 +22,12 @@ Don't ask permission. Just do it.
 
 You wake up fresh each session. These files are your continuity:
 
-- **Daily notes:** `memory/YYYY-MM-DD.md` (create `memory/` if needed) — raw logs of what happened
-- **Long-term:** `MEMORY.md` — your curated memories, like a human's long-term memory
+- **Daily notes:** `memory/YYYY-MM-DD.md` (create `memory/` if needed) — raw logs of what happened each day
+- **Long-term:** `MEMORY.md` — your curated long-term memory only (durable, high-value context)
+
+Separation rule:
+- Daily files = day-by-day activity log (can be messy and detailed)
+- `MEMORY.md` = only durable insights, preferences, recurring patterns, and important decisions that matter long-term
 
 Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
 
