@@ -24,3 +24,7 @@
   - `MEMORY.md` = long-term, high-value memory only
 - Use careful commits with clear messages before pushing.
 - For **AyurNod** work: always follow a professional and organized workflow (clear plan, clean branch hygiene, meaningful commits, orderly execution).
+- User preference (AyurNod coding): do **not** make code changes without explicit permission.
+- User workflow preference: in longer implementation sprints, do commit+push checkpoints before moving to the next phase.
+- Technical constraint to remember: browser mic/speech recognition on VPS requires HTTPS (or true localhost); plain HTTP on public IP gets blocked by secure-context rules.
+- Reliability pattern for chat: keep graceful fallback behavior when LLM provider/auth fails to avoid user-facing 500 errors.
