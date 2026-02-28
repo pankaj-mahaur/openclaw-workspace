@@ -32,3 +32,4 @@
 - Deployment/runtime note: AyurNod website/backend are now configured for PM2-managed production processes on VPS (`ecosystem.config.cjs`), with startup persistence enabled via systemd (`pm2-root`).
 - Supplements product strategy for AyurNod: affiliate-first marketplace model (multi-provider offers + partner checkout redirects), not direct on-site payment checkout.
 - Supplements Phase 2 status: implemented backend redirect tracking + provider/product analytics endpoints and wired website checkout/supplement links through tracked affiliate redirects.
+- Next affiliate milestone context: India-first INR pricing and live provider feeds are now scaffolded (React Query + backend sync service), pending provider credentials + priority + optimization rule from user.
