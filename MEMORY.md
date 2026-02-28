@@ -29,3 +29,4 @@
 - Technical constraint to remember: browser mic/speech recognition on VPS requires HTTPS (or true localhost); plain HTTP on public IP gets blocked by secure-context rules.
 - Reliability pattern for chat: keep graceful fallback behavior when LLM provider/auth fails to avoid user-facing 500 errors.
 - Current AyurNod UI direction preference: keep **dark mode as default**, use a warm off-white light theme option, and keep gradients/glass effects very subtle so health-trust clarity remains primary.
+- Deployment/runtime note: AyurNod website/backend are now configured for PM2-managed production processes on VPS (`ecosystem.config.cjs`), with startup persistence enabled via systemd (`pm2-root`).
