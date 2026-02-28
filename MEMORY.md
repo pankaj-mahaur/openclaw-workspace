@@ -30,3 +30,4 @@
 - Reliability pattern for chat: keep graceful fallback behavior when LLM provider/auth fails to avoid user-facing 500 errors.
 - Current AyurNod UI direction preference: keep **dark mode as default**, use a warm off-white light theme option, and keep gradients/glass effects very subtle so health-trust clarity remains primary.
 - Deployment/runtime note: AyurNod website/backend are now configured for PM2-managed production processes on VPS (`ecosystem.config.cjs`), with startup persistence enabled via systemd (`pm2-root`).
+- Supplements product strategy for AyurNod: affiliate-first marketplace model (multi-provider offers + partner checkout redirects), not direct on-site payment checkout.
