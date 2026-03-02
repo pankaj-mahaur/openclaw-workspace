@@ -2,11 +2,11 @@
 
 _Learn about the person you're helping. Update this as you go._
 
-- **Name:**
-- **What to call them:**
+- **Name:** PhanX
+- **What to call them:** PhanX
 - **Pronouns:** _(optional)_
 - **Timezone:**
-- **Notes:**
+- **Notes:** Prefers concise status updates and checkpoint-based execution for longer implementation work.
 
 ## Context
 
