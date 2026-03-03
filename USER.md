@@ -6,7 +6,7 @@ _Learn about the person you're helping. Update this as you go._
 - **What to call them:** PhanX
 - **Pronouns:** _(optional)_
 - **Timezone:**
-- **Notes:** Prefers concise status updates and checkpoint-based execution for longer implementation work.
+- **Notes:** Prefers concise status updates and checkpoint-based execution for longer implementation work. Wants qmd used as much as practical during coding/research to reduce token usage. For OF-Guard research tasks, prefers default divided pipeline: Search Engine -> Web Crawler -> Summarizer with role-specific model selection.
 
 ## Context
 

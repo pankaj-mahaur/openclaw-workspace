@@ -23,6 +23,8 @@
   - `memory/YYYY-MM-DD.md` = daily logs
   - `MEMORY.md` = long-term, high-value memory only
 - Use careful commits with clear messages before pushing.
+- Codename for the full OpenFlow subagent automation process (daily search sync + strict gating + autoswitch + dashboard): **OF-Guard**.
+- Default OF-Guard execution workflow preference: **Search Engine → Web Crawler → Summarizer** (role-specialized pipeline for divided work and cleaner outputs).
 - For **AyurNod** work: always follow a professional and organized workflow (clear plan, clean branch hygiene, meaningful commits, orderly execution).
 - User preference (AyurNod coding): do **not** make code changes without explicit permission.
 - User workflow preference: in longer implementation sprints, do commit+push checkpoints before moving to the next phase.

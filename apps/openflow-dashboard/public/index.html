@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF-Guard Command Dashboard</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>OF-Guard Dashboard</h1>
+      <div id="meta">Connecting…</div>
+    </div>
+    <div class="controls">
+      <label>Auto refresh
+        <select id="interval">
+          <option value="10000">10s</option>
+          <option value="20000" selected>20s</option>
+          <option value="30000">30s</option>
+          <option value="60000">60s</option>
+        </select>
+      </label>
+      <button id="toggleRefresh" class="btn">Pause</button>
+      <button id="refreshNow" class="btn primary">Refresh now</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="kpi-grid">
+      <article class="card">
+        <h2>Active Route</h2>
+        <div id="kpiActive" class="kpi">-</div>
+        <div id="kpiActiveSub" class="muted">-</div>
+      </article>
+
+      <article class="card">
+        <h2>Guard + Routing</h2>
+        <div id="kpiGuard" class="kpi">-</div>
+        <div id="kpiRouting" class="muted">-</div>
+      </article>
+
+      <article class="card">
+        <h2>Health Snapshot</h2>
+        <div class="chips" id="kpiHealthChips"></div>
+        <div id="kpiHealthSub" class="muted">-</div>
+      </article>
+
+      <article class="card">
+        <h2>Rate Gate Pressure</h2>
+        <div class="bar-wrap">
+          <span>Requests</span>
+          <div class="bar"><i id="barReq"></i></div>
+          <span id="barReqText">0%</span>
+        </div>
+        <div class="bar-wrap">
+          <span>Tokens</span>
+          <div class="bar"><i id="barTok"></i></div>
+          <span id="barTokText">0%</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="card">
+      <div class="row between">
+        <h2>Default Role Pipeline</h2>
+        <span class="badge info" id="pipelineCount">0 roles</span>
+      </div>
+      <div id="pipelineRoles" class="pipeline"></div>
+    </section>
+
+    <section class="card">
+      <div class="row between">
+        <h2>Daily Sync Diff</h2>
+        <span id="dailyUpdated" class="muted">-</span>
+      </div>
+      <div class="chips" id="dailyChips"></div>
+      <div class="diff-grid">
+        <div>
+          <h3>Added</h3>
+          <ul id="dailyAdded"></ul>
+        </div>
+        <div>
+          <h3>Removed</h3>
+          <ul id="dailyRemoved"></ul>
+        </div>
+        <div>
+          <h3>Changed</h3>
+          <ul id="dailyChanged"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <div class="row between wrap-gap">
+        <h2>Models (Quality + Limits)</h2>
+        <div class="filters">
+          <input id="modelSearch" placeholder="Search model / provider" />
+          <select id="providerFilter">
+            <option value="all">All providers</option>
+          </select>
+        </div>
+      </div>
+      <table id="modelsTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Provider</th>
+            <th>Model</th>
+            <th>Priority</th>
+            <th>RPM</th>
+            <th>TPM</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="card wide">
+      <div class="row between wrap-gap">
+        <h2>Account Health Feed</h2>
+        <div class="filters">
+          <select id="healthStatusFilter">
+            <option value="all">All status</option>
+            <option value="pass">PASS</option>
+            <option value="fail">FAIL</option>
+            <option value="unk">UNK</option>
+          </select>
+          <input id="healthSearch" placeholder="Search provider/model/account" />
+        </div>
+      </div>
+      <table id="healthTable">
+        <thead>
+          <tr>
+            <th>Provider</th>
+            <th>Model</th>
+            <th>Account</th>
+            <th>Status</th>
+            <th>Usage %</th>
+            <th>Checked At</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="card wide">
+      <h2>Rate Gate Entries</h2>
+      <table id="gateTable">
+        <thead>
+          <tr>
+            <th>Route</th>
+            <th>Window</th>
+            <th>Requests</th>
+            <th>Tokens</th>
+            <th>Updated</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="card wide">
+      <h2>Policy + Live Events</h2>
+      <div class="event-grid">
+        <div>
+          <h3>Policy</h3>
+          <div id="policySummary" class="muted">-</div>
+          <pre id="policyRaw">-</pre>
+        </div>
+        <div>
+          <h3>Autoswitch log (tail)</h3>
+          <pre id="eventsAutoswitch">-</pre>
+        </div>
+        <div>
+          <h3>Policy log (tail)</h3>
+          <pre id="eventsPolicy">-</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>Raw JSON Inspectors</h2>
+      <details>
+        <summary>State JSON</summary>
+        <pre id="rawState">-</pre>
+      </details>
+      <details>
+        <summary>Summary JSON</summary>
+        <pre id="rawSummary">-</pre>
+      </details>
+      <details>
+        <summary>Gate JSON</summary>
+        <pre id="rawGate">-</pre>
+      </details>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
