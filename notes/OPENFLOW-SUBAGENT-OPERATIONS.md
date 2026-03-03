@@ -15,12 +15,20 @@ Updated: 2026-03-03 UTC
 
 ## 2) Current Subagent Provider Setup
 
-- Provider: **Groq**
-- Quality shortlist enabled (weak/specialized models excluded from default routing).
-- Accounts: `gmail_1..gmail_6` tested.
+- Providers: **Groq + Gemini + NVIDIA**
+- Groq quality shortlist enabled (weak/specialized models excluded from default routing).
+- Groq accounts: `gmail_1..gmail_6` slots configured.
+- Gemini accounts: active `gmail_1,gmail_2,gmail_3,gmail_5` (gmail_4 hard-disabled for repeated quota failures).
+- NVIDIA accounts: active `gmail_1` (keyed), slots reserved `gmail_2..gmail_6`.
 - Mode: **best-of-best quality-first**
-  - Primary: `meta-llama/llama-4-maverick-17b-128e-instruct`
-  - Secondary (throughput fallback): `meta-llama/llama-4-scout-17b-16e-instruct`
+  - Groq primary: `meta-llama/llama-4-maverick-17b-128e-instruct`
+  - Groq secondary (throughput fallback): `meta-llama/llama-4-scout-17b-16e-instruct`
+  - Gemini active model: `models/gemini-2.5-flash` (Pro removed from active config after consistent fail/quota results)
+  - NVIDIA inventory: live `/v1/models` discovery from Build key (chat-capable inventory stored, broad enabled with failed models removed)
+  - Live-search validated baseline limits used in OF-Guard config:
+    - `models/gemini-2.5-flash`: 10 RPM / 250k TPM / 250 RPD
+  - NVIDIA limits: provider does not expose stable public per-model RPM/TPM table in docs/API; runtime headers currently empty on probes, so limits remain null and guarded by health checks + model shortlist.
+  - Note: current Google docs route exact per-model limits to AI Studio rate-limit page; treat config values as guard baselines and re-verify in AI Studio for each project/tier.
 
 ## 3) Core Commands
 
@@ -39,6 +47,9 @@ scripts/openflow/subagent-controller.sh guard
 # reserve budget + route (before sending request)
 scripts/openflow/subagent-router.sh acquire-route --needTokens 900 --needRequests 1
 
+# optional: worker-aware route acquisition (helps spread workers across different mail/account slots)
+scripts/openflow/subagent-router.sh acquire-route --needTokens 900 --needRequests 1 --worker search-engine
+
 # after response, reconcile actual token usage
 scripts/openflow/subagent-router.sh settle \
   --provider groq --model meta-llama/llama-4-maverick-17b-128e-instruct --account gmail_1 \
@@ -49,13 +60,29 @@ scripts/openflow/subagent-router.sh status
 
 # easiest end-to-end (acquire + API call + settle)
 scripts/openflow/subagent-safe-chat.sh --message "hello" --maxTokens 120
+
+# worker-aware end-to-end call (keeps account spread stable per worker)
+scripts/openflow/subagent-safe-chat.sh --worker summarizer --message "hello" --maxTokens 120
 ```
+
+Router allocator behavior (for speed via account spread):
+- Quality score remains primary.
+- Hot routes and recently used same model/account get penalty.
+- Router rotates across account slots for same top model to reduce serial bottlenecks.
+- Optional `--worker` applies sticky affinity per worker while still avoiding collisions with other workers.
 
 ### Health + rate headers
 ```bash
-scripts/openflow/subagent-tester.sh --provider <id> --model <id> --account <id>
+scripts/openflow/subagent-tester.sh --provider <id> --model <id> --account <id> --probe chat
+scripts/openflow/subagent-tester-matrix.sh              # enabled model/account combos with keys (provider caps applied)
+scripts/openflow/subagent-tester-scheduled.sh           # active-route + matrix wrapper
 scripts/openflow/subagent-rate-probe.sh --provider <id> --model <id> --account <id>
 ```
+
+Matrix-load guard (to keep VPS light when provider inventories are huge):
+- `OPENFLOW_TESTER_MATRIX_MAX_PER_PROVIDER` (default `60`)
+- `OPENFLOW_TESTER_MATRIX_MAX_NVIDIA` (default `20`)
+- Active route model is always included even if outside cap.
 
 ### Task-safe execution (checkpoint/resume)
 ```bash
@@ -85,9 +112,15 @@ Installed cron entries:
 * * * * * /root/.openclaw/workspace/scripts/openflow/subagent-autoswitch-cron.sh
 * * * * * /root/.openclaw/workspace/scripts/openflow/subagent-strict-audit.sh
 15 2 * * * /root/.openclaw/workspace/scripts/openflow/subagent-maintenance.sh
-40 3 * * * /root/.openclaw/workspace/scripts/openflow/searcher-daily-sync.sh >> /root/.openclaw/workspace/logs/searcher-daily-sync.log 2>&1 && node /root/.openclaw/workspace/scripts/openflow/searcher-policy-check.js >> /root/.openclaw/workspace/logs/searcher-policy.log 2>&1
+40 3,15 * * * /root/.openclaw/workspace/scripts/openflow/searcher-daily-sync.sh >> /root/.openclaw/workspace/logs/searcher-daily-sync.log 2>&1 && node /root/.openclaw/workspace/scripts/openflow/searcher-policy-check.js >> /root/.openclaw/workspace/logs/searcher-policy.log 2>&1
+50 3,15 * * * /root/.openclaw/workspace/scripts/openflow/subagent-tester-scheduled.sh
 @reboot /root/.openclaw/workspace/scripts/openflow/dashboard-start.sh
 ```
+
+Current load-shed state (2026-03-03 UTC):
+- OF dashboard manually stopped.
+- OpenFlow cron entries temporarily removed from active crontab to reduce VPS load.
+- Restore source: `config/openflow/subagent/cron-backup-20260303T145348Z.txt`.
 
 ### Strict mode enforcement
 - `strictMode.enabled=true` in `config/openflow/subagent/master-config.json`
@@ -158,10 +191,24 @@ Dashboard auth is token-protected via:
 
 Shows:
 - active route + guard state
+- live subagent model usage (router + role routing + tester/searcher status)
 - daily sync diff (added/removed/changed)
-- quality shortlist table
-- Groq account health table
+- quality/model tables
+- account health feed
 - rate-gate state
+
+Dashboard UX/runtime notes (latest):
+- Default live refresh: **10s** with low-load strategy
+  - `/api/pack/live` on frequent ticks
+  - `/api/pack/full` periodic full sync (~60s at 10s interval)
+- Background-tab auto slowdown to reduce VPS load (>=30s effective interval).
+- Account Health Feed is compact by default:
+  - row limit selector (25/50/100/all)
+  - fail-first toggle
+  - provider summary chips
+  - fixed-height scroll container
+- Policy + Live Events overflow is handled via responsive grid + wrapped log blocks.
+- Theme direction: dark premium black-glass morphism (responsive, high-contrast, minimal clutter).
 
 ## 9) Quick Troubleshooting
 
@@ -218,3 +265,9 @@ Pipeline spec file:
 - `config/openflow/subagent/role-pipeline.json`
 
 Model preference is role-specific (quality/throughput balanced) and still enforced through OF-Guard routing + key pool.
+
+Role context files (new):
+- Search Engine: `agents/search-engine/{AGENTS.md,SOUL.md,HEARTBEAT.md,MEMORY.md}`
+- Web Crawler: `agents/web-crawler/{AGENTS.md,SOUL.md,HEARTBEAT.md,MEMORY.md}`
+- Summarizer: `agents/summarizer/{AGENTS.md,SOUL.md,HEARTBEAT.md,MEMORY.md}`
+- Context references are tracked in `config/openflow/subagent/role-pipeline.json` via `contextFiles` per role.
