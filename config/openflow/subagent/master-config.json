@@ -3387,7 +3387,7 @@
   "searcher": {
     "output": {
       "markdown": "agents/searcher/reports/free-models-latest.md",
-      "json": "config/openflow/free-model-catalog.json"
+      "json": "config/openflow/subagent/free-model-catalog.json"
     },
     "ranking": [
       "quality",
@@ -3400,7 +3400,7 @@
   "tester": {
     "requestTimeoutMs": 30000,
     "saveEveryRun": true,
-    "stateFile": "config/openflow/runtime-state.json"
+    "stateFile": "config/openflow/subagent/runtime-state.json"
   },
   "strictMode": {
     "enabled": true,

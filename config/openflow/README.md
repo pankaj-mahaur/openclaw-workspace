@@ -30,10 +30,12 @@ Use only provider-approved APIs/accounts under each provider's Terms of Service.
 ## Subagent-only execution (isolated config/state)
 Use wrappers so subagent experiments never mutate main defaults:
 - `scripts/openflow/subagent-controller.sh status|select|select-next|quota|maybe-switch|gateway status`
-- `scripts/openflow/subagent-tester.sh --provider groq --model meta-llama/llama-4-scout-17b-16e-instruct --account gmail_1`
-- `scripts/openflow/subagent-rate-probe.sh --provider groq --model meta-llama/llama-4-scout-17b-16e-instruct --account gmail_1`
-- `scripts/openflow/subagent-router.sh acquire-route|settle|status` (strict RPM/TPM gate)
+- `scripts/openflow/subagent-tester.sh --provider groq --model meta-llama/llama-4-maverick-17b-128e-instruct --account gmail_1`
+- `scripts/openflow/subagent-rate-probe.sh --provider groq --model meta-llama/llama-4-maverick-17b-128e-instruct --account gmail_1`
+- `scripts/openflow/subagent-router.sh acquire-route|settle|status|prune` (strict RPM/TPM gate)
 - `scripts/openflow/subagent-safe-chat.sh --message "..."` (gated request path)
+
+Wrappers auto-load `config/openflow/subagent/keys.env` when available.
 
 ### Pre-limit switching workflow (subagent)
 1. Probe live rate headers:

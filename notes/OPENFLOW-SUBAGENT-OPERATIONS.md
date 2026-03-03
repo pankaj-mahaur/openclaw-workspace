@@ -19,7 +19,7 @@ Updated: 2026-03-03 UTC
 - Groq quality shortlist enabled (weak/specialized models excluded from default routing).
 - Groq accounts: `gmail_1..gmail_6` slots configured.
 - Gemini accounts: active `gmail_1,gmail_2,gmail_3,gmail_5` (gmail_4 hard-disabled for repeated quota failures).
-- NVIDIA accounts: active `gmail_1` (keyed), slots reserved `gmail_2..gmail_6`.
+- NVIDIA accounts: active `gmail_1,gmail_2` (keyed), slots reserved `gmail_3..gmail_6`.
 - Mode: **best-of-best quality-first**
   - Groq primary: `meta-llama/llama-4-maverick-17b-128e-instruct`
   - Groq secondary (throughput fallback): `meta-llama/llama-4-scout-17b-16e-instruct`
@@ -31,6 +31,8 @@ Updated: 2026-03-03 UTC
   - Note: current Google docs route exact per-model limits to AI Studio rate-limit page; treat config values as guard baselines and re-verify in AI Studio for each project/tier.
 
 ## 3) Core Commands
+
+All `subagent-*` wrappers now auto-load `config/openflow/subagent/keys.env` when present, so manual `source` is no longer required for normal CLI usage.
 
 ### Status / selection / quota
 ```bash
@@ -57,6 +59,9 @@ scripts/openflow/subagent-router.sh settle \
 
 # inspect gate state
 scripts/openflow/subagent-router.sh status
+
+# prune stale/non-configured gate entries (optional manual cleanup)
+scripts/openflow/subagent-router.sh prune --maxAgeHours 72
 
 # easiest end-to-end (acquire + API call + settle)
 scripts/openflow/subagent-safe-chat.sh --message "hello" --maxTokens 120
@@ -163,6 +168,7 @@ To avoid unnecessary bloat:
    - autoswitch cron logs only meaningful events (switch/defer/error)
 6. **Daily maintenance**
    - prune old completed/failed task files (14d)
+   - prune stale/non-configured rate-gate routes (72h default)
    - compact autoswitch log if >2MB
 
 These reduce file growth and avoid unnecessary context load.
@@ -263,6 +269,9 @@ OF-Guard now defaults to a 3-role divided workflow:
 
 Pipeline spec file:
 - `config/openflow/subagent/role-pipeline.json`
+
+Paplupal orchestration runbook:
+- `notes/PAPLUPAL-ORCHESTRATION.md`
 
 Model preference is role-specific (quality/throughput balanced) and still enforced through OF-Guard routing + key pool.
 

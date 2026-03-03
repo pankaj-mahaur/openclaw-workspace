@@ -3,7 +3,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = '/root/.openclaw/workspace';
+const ROOT = path.resolve(__dirname, '..', '..');
 const HOST = process.env.OPENFLOW_DASHBOARD_HOST || '127.0.0.1';
 const PORT = Number(process.env.OPENFLOW_DASHBOARD_PORT || '18888');
 const DASH_TOKEN = process.env.OPENFLOW_DASHBOARD_TOKEN || '';

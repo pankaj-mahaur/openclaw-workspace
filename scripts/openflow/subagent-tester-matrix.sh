@@ -117,47 +117,6 @@ NODE
   echo >> "$LOG_FILE"
 done
 
-# Auto-remove broken Cerebras preview models when all checked accounts fail with model-not-found style errors.
-node - <<'NODE' "$TMP_JSONL" "$CFG_FILE"
-const fs = require('fs');
-const [jsonlPath, cfgPath] = process.argv.slice(2);
-const previewSet = new Set(['qwen-3-235b-a22b-instruct-2507', 'zai-glm-4.7']);
-const rows = fs.readFileSync(jsonlPath, 'utf8').trim().split(/\n+/).filter(Boolean).map((x) => JSON.parse(x));
-const grouped = new Map();
-for (const r of rows) {
-  if (r.provider !== 'cerebras' || !previewSet.has(r.model)) continue;
-  const arr = grouped.get(r.model) || [];
-  arr.push(r);
-  grouped.set(r.model, arr);
-}
-if (!grouped.size) process.exit(0);
-
-const cfg = JSON.parse(fs.readFileSync(cfgPath, 'utf8'));
-const cerebras = (cfg.providers || []).find((p) => p.id === 'cerebras');
-if (!cerebras) process.exit(0);
-
-let changed = false;
-for (const [modelId, arr] of grouped.entries()) {
-  const anyPass = arr.some((x) => x.ok);
-  if (anyPass) continue;
-  const allModelGone = arr.every((x) => /404|model.*not found|doesn.?t exist|unknown model|not available/i.test(x.output || ''));
-  if (!allModelGone) continue;
-
-  const before = (cerebras.models || []).length;
-  cerebras.models = (cerebras.models || []).filter((m) => m.id !== modelId);
-  if ((cerebras.models || []).length !== before) {
-    changed = true;
-    console.log(`Removed preview model from config: cerebras/${modelId}`);
-  }
-}
-
-if (changed) {
-  cfg.meta = cfg.meta || {};
-  cfg.meta.updatedAt = new Date().toISOString();
-  fs.writeFileSync(cfgPath, JSON.stringify(cfg, null, 2) + '\n');
-}
-NODE
-
 {
   echo "$(date -u +'%Y-%m-%dT%H:%M:%SZ') tester-matrix-summary pass=$pass fail=$fail total=$((pass+fail))"
   echo

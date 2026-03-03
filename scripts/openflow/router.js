@@ -347,6 +347,62 @@ function commandReset() {
   console.log(JSON.stringify({ ok: true, reset: true }, null, 2));
 }
 
+function commandPrune() {
+  const cfg = readJson(CFG_PATH, { providers: [] }) || { providers: [] };
+  const state = readJson(STATE_PATH, {}) || {};
+  const gate = loadGate();
+  const maxAgeHours = Number(arg('maxAgeHours', '72'));
+  const nowMs = Date.now();
+
+  const allowed = new Set();
+  for (const p of cfg.providers || []) {
+    if (p.enabled === false) continue;
+    for (const m of p.models || []) {
+      if (m.enabled === false) continue;
+      for (const a of p.accounts || []) {
+        allowed.add(`${p.id}:${m.id}:${a.id}`);
+      }
+    }
+  }
+
+  if (state?.active?.provider && state?.active?.model && state?.active?.account) {
+    allowed.add(`${state.active.provider}:${state.active.model}:${state.active.account}`);
+  }
+
+  const entries = gate.entries || {};
+  let removedNotConfigured = 0;
+  let removedOld = 0;
+
+  for (const [key, value] of Object.entries(entries)) {
+    if (!allowed.has(key)) {
+      delete entries[key];
+      removedNotConfigured += 1;
+      continue;
+    }
+
+    if (Number.isFinite(maxAgeHours) && maxAgeHours > 0) {
+      const updatedAtMs = value?.updatedAt ? new Date(value.updatedAt).getTime() : NaN;
+      if (Number.isFinite(updatedAtMs)) {
+        const ageHours = (nowMs - updatedAtMs) / (1000 * 60 * 60);
+        if (ageHours > maxAgeHours) {
+          delete entries[key];
+          removedOld += 1;
+        }
+      }
+    }
+  }
+
+  gate.entries = entries;
+  saveGate(gate);
+  console.log(JSON.stringify({
+    ok: true,
+    removedNotConfigured,
+    removedOld,
+    kept: Object.keys(entries).length,
+    maxAgeHours
+  }, null, 2));
+}
+
 function main() {
   const cmd = process.argv[2];
   switch (cmd) {
@@ -362,8 +418,11 @@ function main() {
     case 'reset':
       commandReset();
       break;
+    case 'prune':
+      commandPrune();
+      break;
     default:
-      console.error('Usage: acquire-route|settle|status|reset [flags]');
+      console.error('Usage: acquire-route|settle|status|reset|prune [flags]');
       process.exit(2);
   }
 }
