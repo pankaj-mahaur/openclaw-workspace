@@ -29,6 +29,8 @@
 - User preference for OF-Guard dashboard: keep it modern dark-premium (black-glass), interactive/responsive, and compact (especially Account Health + Events sections) while maintaining low VPS load.
 - As of 2026-03-03, Cerebras provider is removed from OF-Guard subagent routing/config at user request; Groq remains active provider.
 - User preference for delegated work visibility: when output is produced with subagents, include a small reply marker `*help by sub agents*` in user-facing updates.
+- New execution preference (2026-03-03): prioritize **best final output quality** while keeping Paplu’s direct replies token-lean; allow heavier token/research usage inside delegated subagents, then return compact synthesized results to user.
+- New orchestration preference (2026-03-03): treat "Paplupal" as an on-demand meta-orchestrator pattern (brief -> delegate -> compress), with Paplu doing final hard-thinking only when subagent outputs are insufficient.
 - OpenClaw tooling preference: keep coding access unlocked by default (`tools.profile: coding`); do not switch to locked/messaging profile unless the user explicitly reconfirms.
 - For **AyurNod** work: always follow a professional and organized workflow (clear plan, clean branch hygiene, meaningful commits, orderly execution).
 - User preference (AyurNod coding): do **not** make code changes without explicit permission.

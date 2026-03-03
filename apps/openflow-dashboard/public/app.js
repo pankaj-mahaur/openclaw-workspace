@@ -2,8 +2,13 @@ const TOKEN = new URLSearchParams(location.search).get('token') || '';
 
 const appState = {
   paused: false,
-  intervalMs: 20000,
+  intervalMs: 10000,
+  fullRefreshEvery: 6, // full payload every ~60s when interval is 10s
+  tick: 0,
   timer: null,
+  countdownTimer: null,
+  nextRefreshInSec: 10,
+  lastMode: 'live',
   data: {
     summary: {},
     state: {},
@@ -14,7 +19,9 @@ const appState = {
     policy: {},
     events: {}
   },
-  modelsRows: []
+  modelsRows: [],
+  healthRows: [],
+  modelPage: 1
 };
 
 function withToken(url) {
@@ -79,6 +86,26 @@ function setMeta(msg, isError = false) {
   meta.classList.toggle('error', !!isError);
 }
 
+function setLiveIndicator(ok = true) {
+  const dot = document.getElementById('liveDot');
+  dot.classList.toggle('dead', !ok);
+}
+
+function setRefreshBadge() {
+  const badgeEl = document.getElementById('refreshBadge');
+  const pageMode = document.hidden ? 'BACKGROUND (slow mode)' : 'FOREGROUND';
+  badgeEl.textContent = `Fetch: ${appState.lastMode.toUpperCase()} • ${pageMode}`;
+}
+
+function setCountdownText() {
+  const countdown = document.getElementById('countdown');
+  if (appState.paused) {
+    countdown.textContent = 'refresh paused';
+    return;
+  }
+  countdown.textContent = `next refresh in ${Math.max(0, appState.nextRefreshInSec)}s`;
+}
+
 function renderKpis(summary) {
   const active = summary.active || {};
   const guard = summary.guard || {};
@@ -108,6 +135,56 @@ function renderKpis(summary) {
   document.getElementById('barTokText').textContent = `${tokPct.toFixed(1)}%`;
 }
 
+function renderWorkers(summary = {}) {
+  const wrap = document.getElementById('workersGrid');
+  const workers = summary.workers || {};
+  const roles = workers.roleRouting || [];
+
+  const cards = [];
+
+  const router = workers.router || {};
+  cards.push(`
+    <article class="worker-card main-route">
+      <h3>Router / Live Route</h3>
+      <div class="worker-model">${escapeHtml([router.provider, router.model, router.account].filter(Boolean).join(' / ') || 'n/a')}</div>
+      <div class="muted">updated: ${escapeHtml(router.updatedAt || '-')}</div>
+    </article>
+  `);
+
+  const tester = workers.tester || {};
+  cards.push(`
+    <article class="worker-card tester">
+      <h3>Tester</h3>
+      <div class="worker-model">cadence: ${escapeHtml(tester.cadence || '-')}</div>
+      <div class="muted">last checked: ${escapeHtml(tester.lastCheckedAt || '-')}</div>
+    </article>
+  `);
+
+  const searcher = workers.searcher || {};
+  cards.push(`
+    <article class="worker-card searcher">
+      <h3>Searcher</h3>
+      <div class="worker-model">cadence: ${escapeHtml(searcher.cadence || '-')}</div>
+      <div class="muted">last sync: ${escapeHtml(searcher.lastSyncAt || '-')}</div>
+      <div class="muted">active models tracked: ${escapeHtml(searcher.activeModelCount ?? '-')}</div>
+    </article>
+  `);
+
+  for (const r of roles) {
+    cards.push(`
+      <article class="worker-card role-card">
+        <h3>${escapeHtml(r.roleLabel || r.roleId || 'Role')}</h3>
+        <div class="worker-model">${escapeHtml([r.liveProvider, r.liveModel, r.liveAccount].filter(Boolean).join(' / ') || 'n/a')}</div>
+        <div class="muted">roleId: ${escapeHtml(r.roleId || '-')}</div>
+        <div class="muted">route: ${escapeHtml(r.routeKey || 'fallback(active)')}</div>
+      </article>
+    `);
+  }
+
+  wrap.innerHTML = cards.join('');
+  document.getElementById('workersUpdated').textContent = `updated ${summary.updatedAt || '-'}`;
+}
+
 function renderPipeline(pipeline = {}) {
   const roles = pipeline.roles || [];
   const wrap = document.getElementById('pipelineRoles');
@@ -128,7 +205,7 @@ function renderPipeline(pipeline = {}) {
 }
 
 function renderDaily(daily = {}, summary = {}) {
-  document.getElementById('dailyUpdated').textContent = daily.updatedAt || '-';
+  document.getElementById('dailyUpdated').textContent = daily.updatedAt || summary?.daily?.updatedAt || '-';
   const chips = document.getElementById('dailyChips');
   chips.innerHTML = [
     badge(`Active Models ${summary.daily?.activeModelCount || 0}`, 'info'),
@@ -186,6 +263,7 @@ function renderModelsTable() {
   const tbody = document.querySelector('#modelsTable tbody');
   const q = (document.getElementById('modelSearch').value || '').trim().toLowerCase();
   const provider = document.getElementById('providerFilter').value;
+  const pageSizeRaw = document.getElementById('modelPageSize')?.value || '25';
 
   const filtered = appState.modelsRows.filter((r) => {
     if (provider !== 'all' && r.provider !== provider) return false;
@@ -193,11 +271,35 @@ function renderModelsTable() {
     return `${r.provider} ${r.model}`.toLowerCase().includes(q);
   });
 
+  const pageSize = pageSizeRaw === 'all' ? Math.max(1, filtered.length) : Math.max(1, Number(pageSizeRaw) || 25);
+  const totalPages = pageSizeRaw === 'all' ? 1 : Math.max(1, Math.ceil(filtered.length / pageSize));
+  appState.modelPage = Math.min(Math.max(1, appState.modelPage), totalPages);
+
+  const start = pageSizeRaw === 'all' ? 0 : ((appState.modelPage - 1) * pageSize);
+  const pageRows = pageSizeRaw === 'all' ? filtered : filtered.slice(start, start + pageSize);
+
+  const pageInfo = document.getElementById('modelPageInfo');
+  const prevBtn = document.getElementById('modelPrevPage');
+  const nextBtn = document.getElementById('modelNextPage');
+  const meta = document.getElementById('modelsMeta');
+
+  if (pageInfo) pageInfo.textContent = `Page ${appState.modelPage}/${totalPages}`;
+  if (prevBtn) prevBtn.disabled = appState.modelPage <= 1;
+  if (nextBtn) nextBtn.disabled = appState.modelPage >= totalPages;
+
+  if (meta) {
+    if (!filtered.length) {
+      meta.textContent = 'Showing 0 of 0 models';
+    } else {
+      meta.textContent = `Showing ${start + 1}-${start + pageRows.length} of ${filtered.length} models`;
+    }
+  }
+
   tbody.innerHTML = '';
-  filtered.forEach((r, i) => {
+  pageRows.forEach((r, i) => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>${i + 1}</td>
+      <td>${start + i + 1}</td>
       <td>${escapeHtml(r.provider)}</td>
       <td>${escapeHtml(r.model)}</td>
       <td>${escapeHtml(r.priority)}</td>
@@ -208,15 +310,19 @@ function renderModelsTable() {
     tbody.appendChild(tr);
   });
 
-  if (!filtered.length) {
+  if (!pageRows.length) {
     tbody.innerHTML = '<tr><td colspan="7" class="muted">No matching models.</td></tr>';
   }
 }
 
 function renderHealthTable(state = {}) {
   const statusFilter = document.getElementById('healthStatusFilter').value;
+  const rowLimit = document.getElementById('healthLimit').value;
+  const failFirst = document.getElementById('healthFailFirst').checked;
   const q = (document.getElementById('healthSearch').value || '').trim().toLowerCase();
   const tbody = document.querySelector('#healthTable tbody');
+
+  const severity = { fail: 0, unk: 1, pass: 2 };
 
   const rows = Object.entries(state.health || {}).map(([k, v]) => {
     const [provider, model, account] = k.split(':');
@@ -231,7 +337,10 @@ function renderHealthTable(state = {}) {
       usage,
       checkedAt: v.checkedAt || '-'
     };
-  }).sort((a, b) => String(b.checkedAt).localeCompare(String(a.checkedAt)));
+  }).sort((a, b) => {
+    if (failFirst && severity[a.status] !== severity[b.status]) return severity[a.status] - severity[b.status];
+    return String(b.checkedAt).localeCompare(String(a.checkedAt));
+  });
 
   const filtered = rows.filter((r) => {
     if (statusFilter !== 'all' && r.status !== statusFilter) return false;
@@ -239,8 +348,25 @@ function renderHealthTable(state = {}) {
     return `${r.provider} ${r.model} ${r.account}`.toLowerCase().includes(q);
   });
 
+  const limited = rowLimit === 'all' ? filtered : filtered.slice(0, Number(rowLimit));
+
+  const byProvider = {};
+  for (const r of filtered) {
+    byProvider[r.provider] = byProvider[r.provider] || { pass: 0, fail: 0, unk: 0, total: 0 };
+    byProvider[r.provider][r.status] += 1;
+    byProvider[r.provider].total += 1;
+  }
+
+  const providerChips = document.getElementById('healthProviderChips');
+  providerChips.innerHTML = Object.entries(byProvider)
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([p, s]) => badge(`${p}: ${s.fail}F / ${s.unk}U / ${s.pass}P`, s.fail ? 'bad' : (s.unk ? 'warn' : 'ok')))
+    .join(' ') || '<span class="muted">No providers in current filter</span>';
+
+  document.getElementById('healthMeta').textContent = `Showing ${limited.length} of ${filtered.length} filtered rows • total raw ${rows.length}`;
+
   tbody.innerHTML = '';
-  filtered.slice(0, 150).forEach((r) => {
+  limited.forEach((r) => {
     const tr = document.createElement('tr');
     const cls = r.status === 'pass' ? 'ok' : (r.status === 'fail' ? 'bad' : 'muted');
     tr.innerHTML = `
@@ -254,7 +380,7 @@ function renderHealthTable(state = {}) {
     tbody.appendChild(tr);
   });
 
-  if (!filtered.length) {
+  if (!limited.length) {
     tbody.innerHTML = '<tr><td colspan="6" class="muted">No health rows matched.</td></tr>';
   }
 }
@@ -303,46 +429,89 @@ function renderRaw(state, summary, gate) {
   document.getElementById('rawGate').textContent = fmt(gate || {});
 }
 
-async function refresh() {
-  try {
-    const [summary, state, config, daily, gate, pipeline, policy, events] = await Promise.all([
-      get('/api/summary'),
-      get('/api/state'),
-      get('/api/config'),
-      get('/api/daily'),
-      get('/api/gate'),
-      get('/api/pipeline'),
-      get('/api/policy'),
-      get('/api/events?limit=100')
-    ]);
+function mergePack(pack) {
+  appState.data.summary = pack.summary || appState.data.summary;
+  appState.data.state = pack.state || appState.data.state;
+  appState.data.gate = pack.gate || appState.data.gate;
+  appState.data.events = pack.events || appState.data.events;
 
-    appState.data = { summary, state, config, daily, gate, pipeline, policy, events };
-    appState.modelsRows = buildModelsRows(config);
-
-    renderKpis(summary);
-    renderPipeline(pipeline);
-    renderDaily(daily, summary);
-
+  if (pack.mode === 'full') {
+    appState.data.config = pack.config || appState.data.config;
+    appState.data.daily = pack.daily || appState.data.daily;
+    appState.data.pipeline = pack.pipeline || appState.data.pipeline;
+    appState.data.policy = pack.policy || appState.data.policy;
+    appState.modelsRows = buildModelsRows(appState.data.config);
     syncProviderFilter(appState.modelsRows);
-    renderModelsTable();
-    renderHealthTable(state);
-    renderGateTable(gate);
-    renderPolicy(policy);
-    renderEvents(events);
-    renderRaw(state, summary, gate);
+  }
+}
 
-    const mode = appState.paused ? 'paused' : `auto ${appState.intervalMs / 1000}s`;
-    setMeta(`Live • ${mode} • ${new Date().toLocaleString()}`);
+function renderAll() {
+  renderKpis(appState.data.summary || {});
+  renderWorkers(appState.data.summary || {});
+  renderPipeline(appState.data.pipeline || {});
+  renderDaily(appState.data.daily || {}, appState.data.summary || {});
+  renderModelsTable();
+  renderHealthTable(appState.data.state || {});
+  renderGateTable(appState.data.gate || {});
+  renderPolicy(appState.data.policy || {});
+  renderEvents(appState.data.events || {});
+  renderRaw(appState.data.state || {}, appState.data.summary || {}, appState.data.gate || {});
+}
+
+function getEffectiveIntervalMs() {
+  return document.hidden ? Math.max(30000, appState.intervalMs) : appState.intervalMs;
+}
+
+function resetCountdown() {
+  appState.nextRefreshInSec = Math.ceil(getEffectiveIntervalMs() / 1000);
+  setCountdownText();
+}
+
+async function refresh(opts = {}) {
+  const forceFull = !!opts.forceFull;
+  const shouldFull = forceFull || appState.tick === 0 || (appState.tick % appState.fullRefreshEvery === 0);
+  const mode = shouldFull ? 'full' : 'live';
+  const endpoint = mode === 'full' ? '/api/pack/full?events=90' : '/api/pack/live?events=40';
+
+  try {
+    const pack = await get(endpoint);
+    appState.lastMode = pack.mode || mode;
+    mergePack(pack);
+    renderAll();
+
+    const modeText = appState.paused ? 'paused' : `auto ${appState.intervalMs / 1000}s`;
+    setMeta(`Live • ${modeText} • low-load mode (full sync every ${appState.fullRefreshEvery * appState.intervalMs / 1000}s) • ${new Date().toLocaleString()}`);
+    setLiveIndicator(true);
+    setRefreshBadge();
+
+    appState.tick += 1;
+    resetCountdown();
   } catch (e) {
     const hint = TOKEN ? '' : ' Add ?token=... if token auth is enabled.';
     setMeta(`Dashboard error: ${e.message}.${hint}`, true);
+    setLiveIndicator(false);
+    setRefreshBadge();
   }
 }
 
 function applyRefreshTimer() {
   if (appState.timer) clearInterval(appState.timer);
   if (appState.paused) return;
-  appState.timer = setInterval(refresh, appState.intervalMs);
+
+  const ms = getEffectiveIntervalMs();
+  appState.timer = setInterval(() => {
+    refresh();
+  }, ms);
+  resetCountdown();
+}
+
+function setupCountdownTicker() {
+  if (appState.countdownTimer) clearInterval(appState.countdownTimer);
+  appState.countdownTimer = setInterval(() => {
+    if (appState.paused) return;
+    appState.nextRefreshInSec = Math.max(0, appState.nextRefreshInSec - 1);
+    setCountdownText();
+  }, 1000);
 }
 
 function setupControls() {
@@ -352,27 +521,57 @@ function setupControls() {
 
   interval.value = String(appState.intervalMs);
   interval.addEventListener('change', () => {
-    appState.intervalMs = Number(interval.value) || 20000;
+    appState.intervalMs = Number(interval.value) || 10000;
     applyRefreshTimer();
-    refresh();
+    refresh({ forceFull: true });
   });
 
   toggle.addEventListener('click', () => {
     appState.paused = !appState.paused;
     toggle.textContent = appState.paused ? 'Resume' : 'Pause';
     applyRefreshTimer();
-    refresh();
+    setRefreshBadge();
+    setCountdownText();
   });
 
-  refreshNow.addEventListener('click', refresh);
+  refreshNow.addEventListener('click', () => refresh({ forceFull: true }));
 
-  document.getElementById('modelSearch').addEventListener('input', renderModelsTable);
-  document.getElementById('providerFilter').addEventListener('change', renderModelsTable);
+  document.getElementById('modelSearch').addEventListener('input', () => {
+    appState.modelPage = 1;
+    renderModelsTable();
+  });
+  document.getElementById('providerFilter').addEventListener('change', () => {
+    appState.modelPage = 1;
+    renderModelsTable();
+  });
+  document.getElementById('modelPageSize').addEventListener('change', () => {
+    appState.modelPage = 1;
+    renderModelsTable();
+  });
+  document.getElementById('modelPrevPage').addEventListener('click', () => {
+    if (appState.modelPage <= 1) return;
+    appState.modelPage -= 1;
+    renderModelsTable();
+  });
+  document.getElementById('modelNextPage').addEventListener('click', () => {
+    appState.modelPage += 1;
+    renderModelsTable();
+  });
 
   document.getElementById('healthStatusFilter').addEventListener('change', () => renderHealthTable(appState.data.state));
+  document.getElementById('healthLimit').addEventListener('change', () => renderHealthTable(appState.data.state));
+  document.getElementById('healthFailFirst').addEventListener('change', () => renderHealthTable(appState.data.state));
   document.getElementById('healthSearch').addEventListener('input', () => renderHealthTable(appState.data.state));
+
+  document.addEventListener('visibilitychange', () => {
+    applyRefreshTimer();
+    setRefreshBadge();
+  });
 }
 
 setupControls();
-refresh();
+setupCountdownTicker();
+setRefreshBadge();
+resetCountdown();
+refresh({ forceFull: true });
 applyRefreshTimer();

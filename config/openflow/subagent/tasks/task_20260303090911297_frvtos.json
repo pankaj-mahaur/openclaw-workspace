@@ -1,0 +1,59 @@
+{
+  "taskId": "task_20260303090911297_frvtos",
+  "token": "tsktok_eyJ0YXNrSWQiOiJ0YXNrXzIwMjYwMzAzMDkwOTExMjk3X2ZydnRvcyIsImlhdCI6IjIwMjYtMDMtMDNUMDk6MDk6MTEuMjk4WiJ9",
+  "name": "autosave-debounce-demo",
+  "status": "completed",
+  "createdAt": "2026-03-03T09:09:11.298Z",
+  "updatedAt": "2026-03-03T09:09:17.471Z",
+  "lockMinutes": 5,
+  "lockedUntil": "2026-03-03T09:14:11.298Z",
+  "routeAtStart": {
+    "provider": "groq",
+    "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+    "account": "gmail_1"
+  },
+  "note": null,
+  "checkpointPolicy": {
+    "summaryMaxChars": 220,
+    "minIntervalSec": 180,
+    "progressMinDelta": 5,
+    "maxPerTask": 40
+  },
+  "checkpoints": [
+    {
+      "at": "2026-03-03T09:09:11.298Z",
+      "type": "start",
+      "summary": "Task started: autosave-debounce-demo",
+      "route": {
+        "provider": "groq",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "account": "gmail_1"
+      },
+      "progress": 0
+    },
+    {
+      "at": "2026-03-03T09:09:11.349Z",
+      "type": "checkpoint",
+      "summary": "phase-1 parsed inputs",
+      "progress": 10,
+      "route": {
+        "provider": "groq",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "account": "gmail_1"
+      },
+      "guardLockedUntil": "2026-03-03T09:14:11.298Z",
+      "meta": null
+    },
+    {
+      "at": "2026-03-03T09:09:17.471Z",
+      "type": "complete",
+      "summary": "demo done",
+      "route": {
+        "provider": "groq",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "account": "gmail_1"
+      }
+    }
+  ],
+  "completedAt": "2026-03-03T09:09:17.471Z"
+}

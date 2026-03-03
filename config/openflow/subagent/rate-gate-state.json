@@ -1,0 +1,2444 @@
+{
+  "updatedAt": "2026-03-03T14:46:50.191Z",
+  "entries": {
+    "nvidia:qwen/qwen3.5-397b-a17b:gmail_1": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:meta-llama/llama-4-maverick-17b-128e-instruct:gmail_1": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 6000,
+      "usedRequests": 1,
+      "usedTokens": 120,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:meta-llama/llama-4-maverick-17b-128e-instruct:gmail_2": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 6000,
+      "usedRequests": 1,
+      "usedTokens": 120,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:meta-llama/llama-4-maverick-17b-128e-instruct:gmail_3": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 6000,
+      "usedRequests": 1,
+      "usedTokens": 120,
+      "updatedAt": "2026-03-03T14:46:50.188Z"
+    },
+    "groq:meta-llama/llama-4-maverick-17b-128e-instruct:gmail_4": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:meta-llama/llama-4-maverick-17b-128e-instruct:gmail_5": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:meta-llama/llama-4-maverick-17b-128e-instruct:gmail_6": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:meta-llama/llama-4-scout-17b-16e-instruct:gmail_1": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 30000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:meta-llama/llama-4-scout-17b-16e-instruct:gmail_2": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 30000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:meta-llama/llama-4-scout-17b-16e-instruct:gmail_3": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 30000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:meta-llama/llama-4-scout-17b-16e-instruct:gmail_4": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 30000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:meta-llama/llama-4-scout-17b-16e-instruct:gmail_5": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 30000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:meta-llama/llama-4-scout-17b-16e-instruct:gmail_6": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 30000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:llama-3.3-70b-versatile:gmail_1": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 12000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.184Z"
+    },
+    "groq:llama-3.3-70b-versatile:gmail_2": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 12000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:llama-3.3-70b-versatile:gmail_3": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 12000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:llama-3.3-70b-versatile:gmail_4": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 12000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:llama-3.3-70b-versatile:gmail_5": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 12000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:llama-3.3-70b-versatile:gmail_6": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 12000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "nvidia:mistralai/mistral-large-3-675b-instruct-2512:gmail_1": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:moonshotai/kimi-k2-instruct-0905:gmail_1": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 10000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:moonshotai/kimi-k2-instruct-0905:gmail_2": {
+      "windowStartMs": 1772549210021,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 10000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:moonshotai/kimi-k2-instruct-0905:gmail_3": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 10000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:moonshotai/kimi-k2-instruct-0905:gmail_4": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 10000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:moonshotai/kimi-k2-instruct-0905:gmail_5": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 10000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:moonshotai/kimi-k2-instruct-0905:gmail_6": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 10000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "nvidia:meta/llama-4-maverick-17b-128e-instruct:gmail_1": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:openai/gpt-oss-120b:gmail_1": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:openai/gpt-oss-120b:gmail_2": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:openai/gpt-oss-120b:gmail_3": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:openai/gpt-oss-120b:gmail_4": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:openai/gpt-oss-120b:gmail_5": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:openai/gpt-oss-120b:gmail_6": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "nvidia:qwen/qwen3-coder-480b-a35b-instruct:gmail_1": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:qwen/qwen3-32b:gmail_1": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:qwen/qwen3-32b:gmail_2": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:qwen/qwen3-32b:gmail_3": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:qwen/qwen3-32b:gmail_4": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:qwen/qwen3-32b:gmail_5": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "groq:qwen/qwen3-32b:gmail_6": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "nvidia:openai/gpt-oss-120b:gmail_1": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "gemini:models/gemini-2.5-flash:gmail_1": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 250000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "gemini:models/gemini-2.5-flash:gmail_2": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 250000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "gemini:models/gemini-2.5-flash:gmail_3": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 250000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.185Z"
+    },
+    "gemini:models/gemini-2.5-flash:gmail_5": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 250000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:bytedance/seed-oss-36b-instruct:gmail_1": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:moonshotai/kimi-k2-instruct-0905:gmail_1": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:mistralai/devstral-2-123b-instruct-2512:gmail_1": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:allam-2-7b:gmail_1": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:allam-2-7b:gmail_2": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:allam-2-7b:gmail_3": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:allam-2-7b:gmail_4": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:allam-2-7b:gmail_5": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:allam-2-7b:gmail_6": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 6000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:canopylabs/orpheus-arabic-saudi:gmail_1": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 1200,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:canopylabs/orpheus-arabic-saudi:gmail_2": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 1200,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:canopylabs/orpheus-arabic-saudi:gmail_3": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 1200,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:canopylabs/orpheus-arabic-saudi:gmail_4": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 1200,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:canopylabs/orpheus-arabic-saudi:gmail_5": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 1200,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:canopylabs/orpheus-arabic-saudi:gmail_6": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 1200,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:canopylabs/orpheus-v1-english:gmail_1": {
+      "windowStartMs": 1772549210022,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 1200,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:canopylabs/orpheus-v1-english:gmail_2": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 1200,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:canopylabs/orpheus-v1-english:gmail_3": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 1200,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:canopylabs/orpheus-v1-english:gmail_4": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 1200,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:canopylabs/orpheus-v1-english:gmail_5": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 1200,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:canopylabs/orpheus-v1-english:gmail_6": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 10,
+      "tpmLimit": 1200,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:groq/compound:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 70000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:groq/compound:gmail_2": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 70000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:groq/compound:gmail_3": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 70000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:groq/compound:gmail_4": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 70000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:groq/compound:gmail_5": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 70000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:groq/compound:gmail_6": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 70000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:groq/compound-mini:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 70000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:groq/compound-mini:gmail_2": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 70000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:groq/compound-mini:gmail_3": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 70000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:groq/compound-mini:gmail_4": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 70000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:groq/compound-mini:gmail_5": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 70000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:groq/compound-mini:gmail_6": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 70000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-guard-4-12b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-guard-4-12b:gmail_2": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-guard-4-12b:gmail_3": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-guard-4-12b:gmail_4": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-guard-4-12b:gmail_5": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-guard-4-12b:gmail_6": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-prompt-guard-2-22m:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-prompt-guard-2-22m:gmail_2": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-prompt-guard-2-22m:gmail_3": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-prompt-guard-2-22m:gmail_4": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-prompt-guard-2-22m:gmail_5": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-prompt-guard-2-22m:gmail_6": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-prompt-guard-2-86m:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-prompt-guard-2-86m:gmail_2": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-prompt-guard-2-86m:gmail_3": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-prompt-guard-2-86m:gmail_4": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-prompt-guard-2-86m:gmail_5": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:meta-llama/llama-prompt-guard-2-86m:gmail_6": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 15000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:moonshotai/kimi-k2-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 10000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:moonshotai/kimi-k2-instruct:gmail_2": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 10000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:moonshotai/kimi-k2-instruct:gmail_3": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 10000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:moonshotai/kimi-k2-instruct:gmail_4": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 10000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:moonshotai/kimi-k2-instruct:gmail_5": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 10000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:moonshotai/kimi-k2-instruct:gmail_6": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 60,
+      "tpmLimit": 10000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:openai/gpt-oss-20b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:openai/gpt-oss-20b:gmail_2": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:openai/gpt-oss-20b:gmail_3": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:openai/gpt-oss-20b:gmail_4": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:openai/gpt-oss-20b:gmail_5": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:openai/gpt-oss-20b:gmail_6": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:openai/gpt-oss-safeguard-20b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:openai/gpt-oss-safeguard-20b:gmail_2": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:openai/gpt-oss-safeguard-20b:gmail_3": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:openai/gpt-oss-safeguard-20b:gmail_4": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:openai/gpt-oss-safeguard-20b:gmail_5": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:openai/gpt-oss-safeguard-20b:gmail_6": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 30,
+      "tpmLimit": 8000,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:whisper-large-v3:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 20,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:whisper-large-v3:gmail_2": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 20,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:whisper-large-v3:gmail_3": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 20,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:whisper-large-v3:gmail_4": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 20,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:whisper-large-v3:gmail_5": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 20,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:whisper-large-v3:gmail_6": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 20,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:whisper-large-v3-turbo:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 20,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:whisper-large-v3-turbo:gmail_2": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 20,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:whisper-large-v3-turbo:gmail_3": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 20,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:whisper-large-v3-turbo:gmail_4": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 20,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:whisper-large-v3-turbo:gmail_5": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 20,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "groq:whisper-large-v3-turbo:gmail_6": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": 20,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:01-ai/yi-large:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:abacusai/dracarys-llama-3.1-70b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:adept/fuyu-8b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:ai21labs/jamba-1.5-large-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:ai21labs/jamba-1.5-mini-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:aisingapore/sea-lion-7b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:baai/bge-m3:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:baichuan-inc/baichuan2-13b-chat:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:bigcode/starcoder2-15b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:bigcode/starcoder2-7b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:databricks/dbrx-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:deepseek-ai/deepseek-coder-6.7b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:deepseek-ai/deepseek-r1-distill-llama-8b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:deepseek-ai/deepseek-r1-distill-qwen-14b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:deepseek-ai/deepseek-r1-distill-qwen-32b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:deepseek-ai/deepseek-r1-distill-qwen-7b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:deepseek-ai/deepseek-v3.1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:deepseek-ai/deepseek-v3.1-terminus:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/codegemma-1.1-7b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/codegemma-7b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/deplot:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/gemma-2-27b-it:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/gemma-2-2b-it:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/gemma-2-9b-it:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/gemma-2b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/gemma-3-12b-it:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/gemma-3-1b-it:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/gemma-3-27b-it:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/gemma-3-4b-it:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/gemma-3n-e2b-it:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/gemma-3n-e4b-it:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/gemma-7b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/paligemma:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/recurrentgemma-2b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:google/shieldgemma-9b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:gotocompany/gemma-2-9b-cpt-sahabatai-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:ibm/granite-3.0-3b-a800m-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:ibm/granite-3.0-8b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:ibm/granite-3.3-8b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:ibm/granite-34b-code-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:ibm/granite-8b-code-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:igenius/colosseum_355b_instruct_16k:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:igenius/italia_10b_instruct_16k:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.186Z"
+    },
+    "nvidia:institute-of-science-tokyo/llama-3.1-swallow-70b-instruct-v0.1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:institute-of-science-tokyo/llama-3.1-swallow-8b-instruct-v0.1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:marin/marin-8b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mediatek/breeze-7b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:meta/codellama-70b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:meta/llama-3.1-405b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:meta/llama-3.1-70b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:meta/llama-3.1-8b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:meta/llama-3.2-1b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:meta/llama-3.2-3b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:meta/llama-3.3-70b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:meta/llama2-70b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:meta/llama3-70b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:meta/llama3-8b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/kosmos-2:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/phi-3-medium-128k-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/phi-3-medium-4k-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/phi-3-mini-128k-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/phi-3-mini-4k-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/phi-3-small-128k-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/phi-3-small-8k-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/phi-3-vision-128k-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/phi-3.5-mini-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/phi-3.5-moe-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/phi-4-mini-flash-reasoning:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/phi-4-mini-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:microsoft/phi-4-multimodal-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:minimaxai/minimax-m2.1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:minimaxai/minimax-m2.5:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/codestral-22b-instruct-v0.1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/magistral-small-2506:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mamba-codestral-7b-v0.1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mathstral-7b-v0.1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/ministral-14b-instruct-2512:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mistral-7b-instruct-v0.2:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mistral-7b-instruct-v0.3:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mistral-large:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mistral-large-2-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mistral-medium-3-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mistral-nemotron:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mistral-small-24b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mistral-small-3.1-24b-instruct-2503:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mixtral-8x22b-instruct-v0.1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mixtral-8x22b-v0.1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:mistralai/mixtral-8x7b-instruct-v0.1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:moonshotai/kimi-k2-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:moonshotai/kimi-k2-thinking:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nv-mistralai/mistral-nemo-12b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/cosmos-reason2-8b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/llama-3.1-nemotron-51b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/llama-3.1-nemotron-70b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/llama-3.1-nemotron-nano-4b-v1.1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/llama-3.1-nemotron-nano-8b-v1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/llama-3.1-nemotron-nano-vl-8b-v1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/llama-3.1-nemotron-ultra-253b-v1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/llama-3.3-nemotron-super-49b-v1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/llama-3.3-nemotron-super-49b-v1.5:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/llama3-chatqa-1.5-70b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/llama3-chatqa-1.5-8b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/mistral-nemo-minitron-8b-8k-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/mistral-nemo-minitron-8b-base:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/nemotron-3-nano-30b-a3b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/nemotron-4-340b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/nemotron-4-mini-hindi-4b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/nemotron-mini-4b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/nemotron-nano-12b-v2-vl:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/nemotron-nano-3-30b-a3b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/neva-22b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/nvclip:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/nvidia-nemotron-nano-9b-v2:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/streampetr:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/usdcode-llama-3.1-70b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:nvidia/vila:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:openai/gpt-oss-20b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:opengpt-x/teuken-7b-instruct-commercial-v0.4:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:qwen/qwen2-7b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:qwen/qwen2.5-7b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:qwen/qwen2.5-coder-32b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:qwen/qwen2.5-coder-7b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:qwen/qwen3-235b-a22b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:qwen/qwen3-next-80b-a3b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:qwen/qwen3-next-80b-a3b-thinking:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:qwen/qwq-32b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:rakuten/rakutenai-7b-chat:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:rakuten/rakutenai-7b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:sarvamai/sarvam-m:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:speakleash/bielik-11b-v2.3-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:speakleash/bielik-11b-v2.6-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:stepfun-ai/step-3.5-flash:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:stockmark/stockmark-2-100b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:thudm/chatglm3-6b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:tiiuae/falcon3-7b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:tokyotech-llm/llama-3-swallow-70b-instruct-v0.1:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:upstage/solar-10.7b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:utter-project/eurollm-9b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:writer/palmyra-creative-122b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:writer/palmyra-fin-70b-32k:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:writer/palmyra-med-70b:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:writer/palmyra-med-70b-32k:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:yentinglin/llama-3-taiwan-70b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:z-ai/glm4.7:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    },
+    "nvidia:zyphra/zamba2-7b-instruct:gmail_1": {
+      "windowStartMs": 1772549210023,
+      "windowSec": 60,
+      "rpmLimit": null,
+      "tpmLimit": null,
+      "usedRequests": 0,
+      "usedTokens": 0,
+      "updatedAt": "2026-03-03T14:46:50.187Z"
+    }
+  }
+}

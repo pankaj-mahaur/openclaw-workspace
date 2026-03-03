@@ -101,6 +101,16 @@ function computeRateUsagePct(rateLimit = {}) {
   return Math.max(...vals);
 }
 
+function latestCheckedAt(health = {}) {
+  let latest = null;
+  for (const [, v] of Object.entries(health || {})) {
+    const t = v?.checkedAt || null;
+    if (!t) continue;
+    if (!latest || String(t) > String(latest)) latest = t;
+  }
+  return latest;
+}
+
 function buildSummary(state, cfg, daily, gate, catalog, pipeline, policy) {
   const health = state?.health || {};
   const entries = Object.entries(health);
@@ -179,6 +189,47 @@ function buildSummary(state, cfg, daily, gate, catalog, pipeline, policy) {
       roles: (pipeline?.roles || []).map((r) => ({ id: r.id, label: r.label })),
       roleCount: (pipeline?.roles || []).length
     },
+    workers: {
+      router: {
+        provider: active?.provider || null,
+        model: active?.model || null,
+        account: active?.account || null,
+        updatedAt: state?.updatedAt || null
+      },
+      tester: {
+        cadence: '2x/day',
+        lastCheckedAt: latestCheckedAt(health)
+      },
+      searcher: {
+        cadence: '2x/day',
+        lastSyncAt: daily?.updatedAt || null,
+        activeModelCount: daily?.activeModelCount || 0
+      },
+      roleRouting: (pipeline?.roles || []).map((r) => {
+        const routeKey = state?.routeAllocator?.workerAffinity?.[r.id] || null;
+        let liveProvider = active?.provider || null;
+        let liveModel = active?.model || null;
+        let liveAccount = active?.account || null;
+
+        if (routeKey) {
+          const parts = String(routeKey).split(':');
+          if (parts.length >= 3) {
+            liveProvider = parts[0] || liveProvider;
+            liveAccount = parts[parts.length - 1] || liveAccount;
+            liveModel = parts.slice(1, -1).join(':') || liveModel;
+          }
+        }
+
+        return {
+          roleId: r.id,
+          roleLabel: r.label,
+          liveProvider,
+          liveModel,
+          liveAccount,
+          routeKey
+        };
+      })
+    },
     policy: {
       strict: !!policy?.strict,
       allowlistCount: (policy?.allowedDomains || []).length,
@@ -186,6 +237,43 @@ function buildSummary(state, cfg, daily, gate, catalog, pipeline, policy) {
       forbiddenKeywordCount: (policy?.forbiddenKeywords || []).length
     }
   };
+}
+
+function buildPack(mode, eventLimit = 40) {
+  const state = readJsonSafe(PATHS.state) || {};
+  const cfg = sanitizeConfig(readJsonSafe(PATHS.config)) || {};
+  const daily = readJsonSafe(PATHS.daily) || {};
+  const gate = readJsonSafe(PATHS.gate) || {};
+  const catalog = readJsonSafe(PATHS.catalog) || {};
+  const pipeline = readJsonSafe(PATHS.pipeline) || {};
+  const policy = readJsonSafe(PATHS.policy) || {};
+
+  const summary = buildSummary(state, cfg, daily, gate, catalog, pipeline, policy);
+  const pack = {
+    mode,
+    generatedAt: new Date().toISOString(),
+    summary,
+    state: {
+      active: state.active || {},
+      guard: state.guard || {},
+      health: state.health || {}
+    },
+    gate,
+    events: {
+      autoswitch: tailLines(PATHS.autoswitchLog, eventLimit),
+      policy: tailLines(PATHS.policyLog, eventLimit)
+    }
+  };
+
+  if (mode === 'full') {
+    pack.config = cfg;
+    pack.daily = daily;
+    pack.pipeline = pipeline;
+    pack.policy = policy;
+    pack.events.dashboard = tailLines(PATHS.dashboardLog, eventLimit);
+  }
+
+  return pack;
 }
 
 const server = http.createServer((req, res) => {
@@ -224,6 +312,16 @@ const server = http.createServer((req, res) => {
     const pipeline = readJsonSafe(PATHS.pipeline) || {};
     const policy = readJsonSafe(PATHS.policy) || {};
     return json(res, 200, buildSummary(state, cfg, daily, gate, catalog, pipeline, policy));
+  }
+
+  if (u.pathname === '/api/pack/live') {
+    const events = Math.max(10, Math.min(120, Number(u.searchParams.get('events') || 40)));
+    return json(res, 200, buildPack('live', events));
+  }
+
+  if (u.pathname === '/api/pack/full') {
+    const events = Math.max(20, Math.min(200, Number(u.searchParams.get('events') || 80)));
+    return json(res, 200, buildPack('full', events));
   }
 
   if (u.pathname === '/' || u.pathname === '/index.html') {

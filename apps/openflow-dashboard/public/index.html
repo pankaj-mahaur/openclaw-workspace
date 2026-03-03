@@ -11,12 +11,18 @@
     <div>
       <h1>OF-Guard Dashboard</h1>
       <div id="meta">Connecting…</div>
+      <div class="live-strip">
+        <span class="dot" id="liveDot"></span>
+        <span id="refreshBadge" class="muted">Live mode</span>
+        <span class="divider">•</span>
+        <span id="countdown" class="muted">next refresh in --s</span>
+      </div>
     </div>
     <div class="controls">
       <label>Auto refresh
         <select id="interval">
-          <option value="10000">10s</option>
-          <option value="20000" selected>20s</option>
+          <option value="10000" selected>10s (recommended)</option>
+          <option value="20000">20s</option>
           <option value="30000">30s</option>
           <option value="60000">60s</option>
         </select>
@@ -61,6 +67,15 @@
       </article>
     </section>
 
+    <section class="card wide gradient-card">
+      <div class="row between wrap-gap">
+        <h2>Live Subagent Model Usage</h2>
+        <span class="badge info" id="workersUpdated">updated -</span>
+      </div>
+      <div class="workers-grid" id="workersGrid"></div>
+      <div class="workers-note muted">Role agents follow OF-Guard active route unless explicitly overridden per task.</div>
+    </section>
+
     <section class="card">
       <div class="row between">
         <h2>Default Role Pipeline</h2>
@@ -99,8 +114,20 @@
           <select id="providerFilter">
             <option value="all">All providers</option>
           </select>
+          <select id="modelPageSize" title="Rows per page">
+            <option value="25" selected>25/page</option>
+            <option value="50">50/page</option>
+            <option value="100">100/page</option>
+            <option value="all">All</option>
+          </select>
+          <div class="pager">
+            <button id="modelPrevPage" class="btn" type="button">Prev</button>
+            <span id="modelPageInfo" class="muted">Page 1/1</span>
+            <button id="modelNextPage" class="btn" type="button">Next</button>
+          </div>
         </div>
       </div>
+      <div class="muted table-meta" id="modelsMeta">Showing 0 of 0 models</div>
       <table id="modelsTable">
         <thead>
           <tr>
@@ -117,7 +144,7 @@
       </table>
     </section>
 
-    <section class="card wide">
+    <section class="card wide gradient-card">
       <div class="row between wrap-gap">
         <h2>Account Health Feed</h2>
         <div class="filters">
@@ -127,22 +154,33 @@
             <option value="fail">FAIL</option>
             <option value="unk">UNK</option>
           </select>
+          <select id="healthLimit">
+            <option value="25" selected>25 rows</option>
+            <option value="50">50 rows</option>
+            <option value="100">100 rows</option>
+            <option value="all">All rows</option>
+          </select>
+          <label class="toggle-wrap"><input type="checkbox" id="healthFailFirst" /> Fail first</label>
           <input id="healthSearch" placeholder="Search provider/model/account" />
         </div>
       </div>
-      <table id="healthTable">
-        <thead>
-          <tr>
-            <th>Provider</th>
-            <th>Model</th>
-            <th>Account</th>
-            <th>Status</th>
-            <th>Usage %</th>
-            <th>Checked At</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <div class="chips" id="healthProviderChips"></div>
+      <div class="muted health-meta" id="healthMeta">-</div>
+      <div class="table-shell compact">
+        <table id="healthTable">
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>Model</th>
+              <th>Account</th>
+              <th>Status</th>
+              <th>Usage %</th>
+              <th>Checked At</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </section>
 
     <section class="card wide">
