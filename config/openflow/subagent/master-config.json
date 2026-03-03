@@ -2,7 +2,7 @@
   "meta": {
     "name": "openflow-master-config",
     "version": "1.4.0-subagent-quality",
-    "updatedAt": "2026-03-03T15:14:21.424Z"
+    "updatedAt": "2026-03-03T15:35:48Z"
   },
   "runtimeDefaults": {
     "provider": "openai",
@@ -591,12 +591,14 @@
         {
           "id": "gmail_3",
           "authEnv": "NVIDIA_API_KEY_GMAIL3",
-          "status": "pending"
+          "status": "active",
+          "updatedAt": "2026-03-03T15:35:48Z"
         },
         {
           "id": "gmail_4",
           "authEnv": "NVIDIA_API_KEY_GMAIL4",
-          "status": "pending"
+          "status": "active",
+          "updatedAt": "2026-03-03T15:35:48Z"
         },
         {
           "id": "gmail_5",

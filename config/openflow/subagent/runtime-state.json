@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-03-03T15:15:12.044Z",
+  "updatedAt": "2026-03-03T15:39:05.072Z",
   "active": {
-    "provider": "groq",
-    "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
-    "account": "gmail_3"
+    "provider": "nvidia",
+    "model": "qwen/qwen3.5-397b-a17b",
+    "account": "gmail_4"
   },
   "health": {
     "openai:openai-codex/gpt-5.3-codex:gmail_1": {
@@ -599,7 +599,7 @@
     },
     "nvidia:qwen/qwen3.5-397b-a17b:gmail_1": {
       "ok": true,
-      "checkedAt": "2026-03-03T14:45:26.116Z",
+      "checkedAt": "2026-03-03T15:38:29.838Z",
       "status": 200,
       "probe": "chat",
       "rateLimit": {}
@@ -610,9 +610,132 @@
       "status": 200,
       "probe": "chat",
       "rateLimit": {}
+    },
+    "nvidia:meta/llama-4-maverick-17b-128e-instruct:gmail_3": {
+      "ok": true,
+      "checkedAt": "2026-03-03T15:36:04.942Z",
+      "status": 200,
+      "probe": "chat",
+      "rateLimit": {}
+    },
+    "nvidia:meta/llama-4-maverick-17b-128e-instruct:gmail_4": {
+      "ok": true,
+      "checkedAt": "2026-03-03T15:36:05.243Z",
+      "status": 200,
+      "probe": "chat",
+      "rateLimit": {}
+    },
+    "nvidia:qwen/qwen3.5-397b-a17b:gmail_2": {
+      "ok": true,
+      "checkedAt": "2026-03-03T15:38:33.294Z",
+      "status": 200,
+      "probe": "chat",
+      "rateLimit": {}
+    },
+    "nvidia:qwen/qwen3.5-397b-a17b:gmail_3": {
+      "ok": true,
+      "checkedAt": "2026-03-03T15:38:37.438Z",
+      "status": 200,
+      "probe": "chat",
+      "rateLimit": {}
+    },
+    "nvidia:qwen/qwen3.5-397b-a17b:gmail_4": {
+      "ok": true,
+      "checkedAt": "2026-03-03T15:38:41.818Z",
+      "status": 200,
+      "probe": "chat",
+      "rateLimit": {}
     }
   },
   "tests": [
+    {
+      "provider": "nvidia",
+      "model": "qwen/qwen3.5-397b-a17b",
+      "account": "gmail_4",
+      "ok": true,
+      "status": 200,
+      "probe": "chat",
+      "checkedAt": "2026-03-03T15:38:41.819Z",
+      "rateLimit": {},
+      "sample": "{\"id\":\"chatcmpl-be349ee0724bdafb\",\"object\":\"chat.completion\",\"created\":1772552321,\"model\":\"qwen/qwen3.5-397b-a17b\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"OK\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning\":null,\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":17,\"total_tokens\":19,\"completion_tokens\":2,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}"
+    },
+    {
+      "provider": "nvidia",
+      "model": "qwen/qwen3.5-397b-a17b",
+      "account": "gmail_3",
+      "ok": true,
+      "status": 200,
+      "probe": "chat",
+      "checkedAt": "2026-03-03T15:38:37.438Z",
+      "rateLimit": {},
+      "sample": "{\"id\":\"chatcmpl-906d85526a1f705a\",\"object\":\"chat.completion\",\"created\":1772552313,\"model\":\"qwen/qwen3.5-397b-a17b\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"OK\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning\":null,\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":17,\"total_tokens\":19,\"completion_tokens\":2,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}"
+    },
+    {
+      "provider": "nvidia",
+      "model": "qwen/qwen3.5-397b-a17b",
+      "account": "gmail_2",
+      "ok": true,
+      "status": 200,
+      "probe": "chat",
+      "checkedAt": "2026-03-03T15:38:33.295Z",
+      "rateLimit": {},
+      "sample": "{\"id\":\"chatcmpl-a01f003a6da60178\",\"object\":\"chat.completion\",\"created\":1772552312,\"model\":\"qwen/qwen3.5-397b-a17b\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"OK\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning\":null,\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":17,\"total_tokens\":19,\"completion_tokens\":2,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}"
+    },
+    {
+      "provider": "nvidia",
+      "model": "qwen/qwen3.5-397b-a17b",
+      "account": "gmail_1",
+      "ok": true,
+      "status": 200,
+      "probe": "chat",
+      "checkedAt": "2026-03-03T15:38:29.838Z",
+      "rateLimit": {},
+      "sample": "{\"id\":\"chatcmpl-8da1bde64b3d0dd3\",\"object\":\"chat.completion\",\"created\":1772552309,\"model\":\"qwen/qwen3.5-397b-a17b\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"OK\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning\":null,\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":17,\"total_tokens\":19,\"completion_tokens\":2,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}"
+    },
+    {
+      "provider": "nvidia",
+      "model": "meta/llama-4-maverick-17b-128e-instruct",
+      "account": "gmail_4",
+      "ok": true,
+      "status": 200,
+      "probe": "chat",
+      "checkedAt": "2026-03-03T15:36:05.244Z",
+      "rateLimit": {},
+      "sample": "{\"id\":\"chatcmpl-846f2ad4a9bcf504\",\"object\":\"chat.completion\",\"created\":1772552165,\"model\":\"meta/llama-4-maverick-17b-128e-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"OK\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning\":null,\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":15,\"total_tokens\":17,\"completion_tokens\":2,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}"
+    },
+    {
+      "provider": "nvidia",
+      "model": "meta/llama-4-maverick-17b-128e-instruct",
+      "account": "gmail_3",
+      "ok": true,
+      "status": 200,
+      "probe": "chat",
+      "checkedAt": "2026-03-03T15:36:04.942Z",
+      "rateLimit": {},
+      "sample": "{\"id\":\"chatcmpl-8e465b40dc6de885\",\"object\":\"chat.completion\",\"created\":1772552164,\"model\":\"meta/llama-4-maverick-17b-128e-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"OK\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning\":null,\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"stop\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":15,\"total_tokens\":17,\"completion_tokens\":2,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}"
+    },
+    {
+      "provider": "nvidia",
+      "model": "meta/llama-4-maverick-17b-128e-instruct",
+      "account": "gmail_4",
+      "probeType": "rate-limit",
+      "ok": true,
+      "status": 200,
+      "checkedAt": "2026-03-03T15:35:55.689Z",
+      "rateLimit": {},
+      "sample": "{\"id\":\"chatcmpl-aea5735404af4716\",\"object\":\"chat.completion\",\"created\":1772552155,\"model\":\"meta/llama-4-maverick-17b-128e-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"The\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning\":null,\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"length\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":11,\"total_tokens\":12,\"completion_tokens\":1,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}"
+    },
+    {
+      "provider": "nvidia",
+      "model": "meta/llama-4-maverick-17b-128e-instruct",
+      "account": "gmail_3",
+      "probeType": "rate-limit",
+      "ok": true,
+      "status": 200,
+      "checkedAt": "2026-03-03T15:35:55.163Z",
+      "rateLimit": {},
+      "sample": "{\"id\":\"chatcmpl-8b6e1473d90930bc\",\"object\":\"chat.completion\",\"created\":1772552155,\"model\":\"meta/llama-4-maverick-17b-128e-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"The\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning\":null,\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"length\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":11,\"total_tokens\":12,\"completion_tokens\":1,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}"
+    },
     {
       "provider": "nvidia",
       "model": "meta/llama-4-maverick-17b-128e-instruct",
@@ -3840,42 +3963,6 @@
         "x-ratelimit-reset-tokens": "120ms"
       },
       "sample": "{\"id\":\"chatcmpl-c059b30d-f89e-4ddd-945b-3f77b97d0898\",\"object\":\"chat.completion\",\"created\":1772540222,\"model\":\"meta-llama/llama-4-maverick-17b-128e-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"The\"},\"logprobs\":null,\"finish_reason\":\"length\"}],\"usage\":{\"queue_time\":0.246590154,\"prompt_tokens\":11,\"prompt_time\":0.000190866,\"completion_tokens\":1,\"completion_time\":0.002787157,\"total_tokens\":12,\"total_time\":0.002978023},\"usage_breakdown\":null,\"system_fingerprint\":\"fp_217b6e6136\",\"x_groq\":{\"id\":\"req_01kjst2pd5emprn8tm362tz823\",\"seed\":1996158783},\"service_tier\":\"on_demand\"}\n"
-    },
-    {
-      "provider": "groq",
-      "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
-      "account": "gmail_1",
-      "probeType": "rate-limit",
-      "ok": true,
-      "status": 200,
-      "checkedAt": "2026-03-03T12:16:02.224Z",
-      "rateLimit": {
-        "x-ratelimit-limit-requests": "1000",
-        "x-ratelimit-limit-tokens": "6000",
-        "x-ratelimit-remaining-requests": "813",
-        "x-ratelimit-remaining-tokens": "5988",
-        "x-ratelimit-reset-requests": "4h29m16.8s",
-        "x-ratelimit-reset-tokens": "120ms"
-      },
-      "sample": "{\"id\":\"chatcmpl-48042f70-f017-494c-aa22-d55b67d8ee4e\",\"object\":\"chat.completion\",\"created\":1772540162,\"model\":\"meta-llama/llama-4-maverick-17b-128e-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"The\"},\"logprobs\":null,\"finish_reason\":\"length\"}],\"usage\":{\"queue_time\":0.084036565,\"prompt_tokens\":11,\"prompt_time\":0.000391725,\"completion_tokens\":1,\"completion_time\":0.003214225,\"total_tokens\":12,\"total_time\":0.00360595},\"usage_breakdown\":null,\"system_fingerprint\":\"fp_d2c1f7e199\",\"x_groq\":{\"id\":\"req_01kjst0w1bf0q9pp3zkmw18x93\",\"seed\":865914890},\"service_tier\":\"on_demand\"}\n"
-    },
-    {
-      "provider": "groq",
-      "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
-      "account": "gmail_1",
-      "probeType": "rate-limit",
-      "ok": true,
-      "status": 200,
-      "checkedAt": "2026-03-03T12:15:03.308Z",
-      "rateLimit": {
-        "x-ratelimit-limit-requests": "1000",
-        "x-ratelimit-limit-tokens": "6000",
-        "x-ratelimit-remaining-requests": "814",
-        "x-ratelimit-remaining-tokens": "5988",
-        "x-ratelimit-reset-requests": "4h27m50.4s",
-        "x-ratelimit-reset-tokens": "120ms"
-      },
-      "sample": "{\"id\":\"chatcmpl-5940dccf-efad-43bc-9193-201cd9a9c7f2\",\"object\":\"chat.completion\",\"created\":1772540103,\"model\":\"meta-llama/llama-4-maverick-17b-128e-instruct\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"The\"},\"logprobs\":null,\"finish_reason\":\"length\"}],\"usage\":{\"queue_time\":0.260041774,\"prompt_tokens\":11,\"prompt_time\":0.051844785,\"completion_tokens\":1,\"completion_time\":0.003139929,\"total_tokens\":12,\"total_time\":0.054984714},\"usage_breakdown\":null,\"system_fingerprint\":\"fp_217b6e6136\",\"x_groq\":{\"id\":\"req_01kjssz27eefysptnrpz6ydhq2\",\"seed\":813606616},\"service_tier\":\"on_demand\"}\n"
     }
   ],
   "notes": [
@@ -3892,15 +3979,16 @@
   },
   "routeAllocator": {
     "lastAssignedByProviderModel": {
-      "nvidia:qwen/qwen3.5-397b-a17b": "gmail_1",
+      "nvidia:qwen/qwen3.5-397b-a17b": "gmail_4",
       "groq:meta-llama/llama-4-maverick-17b-128e-instruct": "gmail_3"
     },
-    "lastAssignedKey": "groq:meta-llama/llama-4-maverick-17b-128e-instruct:gmail_3",
-    "lastAssignedAt": "2026-03-03T14:46:50.188Z",
+    "lastAssignedKey": "nvidia:qwen/qwen3.5-397b-a17b:gmail_4",
+    "lastAssignedAt": "2026-03-03T15:39:05.072Z",
     "workerAffinity": {
-      "search-engine": "groq:meta-llama/llama-4-maverick-17b-128e-instruct:gmail_1",
-      "web-crawler": "groq:meta-llama/llama-4-maverick-17b-128e-instruct:gmail_2",
-      "summarizer": "groq:meta-llama/llama-4-maverick-17b-128e-instruct:gmail_3"
+      "search-engine": "nvidia:qwen/qwen3.5-397b-a17b:gmail_2",
+      "web-crawler": "nvidia:qwen/qwen3.5-397b-a17b:gmail_1",
+      "summarizer": "nvidia:qwen/qwen3.5-397b-a17b:gmail_3",
+      "paplupal": "nvidia:qwen/qwen3.5-397b-a17b:gmail_4"
     }
   }
 }

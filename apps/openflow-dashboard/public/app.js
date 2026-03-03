@@ -385,24 +385,38 @@ function renderHealthTable(state = {}) {
   }
 }
 
+function shortRouteLabel(route = '') {
+  const [provider = '-', model = '-', account = '-'] = String(route).split(':');
+  const modelTail = model.includes('/') ? model.split('/').pop() : model;
+  const modelShort = modelTail.length > 28 ? `${modelTail.slice(0, 28)}…` : modelTail;
+  const accountShort = String(account).replace(/^gmail_/i, 'g');
+  return `${provider}/${modelShort}/${accountShort}`;
+}
+
 function renderGateTable(gate = {}) {
   const tbody = document.querySelector('#gateTable tbody');
+  const meta = document.getElementById('gateMeta');
   tbody.innerHTML = '';
+
+  const limitRaw = document.getElementById('gateLimit')?.value || '20';
   const entries = Object.entries(gate.entries || {});
 
-  if (!entries.length) {
+  entries.sort((a, b) => String(b[1].updatedAt || '').localeCompare(String(a[1].updatedAt || '')));
+
+  const limited = limitRaw === 'all' ? entries : entries.slice(0, Number(limitRaw));
+  if (meta) meta.textContent = `Showing ${limited.length} of ${entries.length} entries`;
+
+  if (!limited.length) {
     tbody.innerHTML = '<tr><td colspan="5" class="muted">No gate entries yet.</td></tr>';
     return;
   }
 
-  entries.sort((a, b) => String(b[1].updatedAt || '').localeCompare(String(a[1].updatedAt || '')));
-
-  for (const [route, e] of entries) {
+  for (const [route, e] of limited) {
     const reqPct = e.rpmLimit ? ((e.usedRequests || 0) / e.rpmLimit) * 100 : null;
     const tokPct = e.tpmLimit ? ((e.usedTokens || 0) / e.tpmLimit) * 100 : null;
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>${escapeHtml(route)}</td>
+      <td title="${escapeHtml(route)}">${escapeHtml(shortRouteLabel(route))}</td>
       <td>${escapeHtml(`${e.windowSec || '-'}s`)}</td>
       <td>${escapeHtml(`${e.usedRequests || 0}/${e.rpmLimit || '-'}`)} ${reqPct == null ? '' : `(${reqPct.toFixed(1)}%)`}</td>
       <td>${escapeHtml(`${e.usedTokens || 0}/${e.tpmLimit || '-'}`)} ${tokPct == null ? '' : `(${tokPct.toFixed(1)}%)`}</td>
@@ -562,6 +576,8 @@ function setupControls() {
   document.getElementById('healthLimit').addEventListener('change', () => renderHealthTable(appState.data.state));
   document.getElementById('healthFailFirst').addEventListener('change', () => renderHealthTable(appState.data.state));
   document.getElementById('healthSearch').addEventListener('input', () => renderHealthTable(appState.data.state));
+
+  document.getElementById('gateLimit').addEventListener('change', () => renderGateTable(appState.data.gate));
 
   document.addEventListener('visibilitychange', () => {
     applyRefreshTimer();

@@ -184,19 +184,32 @@
     </section>
 
     <section class="card wide">
-      <h2>Rate Gate Entries</h2>
-      <table id="gateTable">
-        <thead>
-          <tr>
-            <th>Route</th>
-            <th>Window</th>
-            <th>Requests</th>
-            <th>Tokens</th>
-            <th>Updated</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <div class="row between wrap-gap">
+        <h2>Rate Gate Entries</h2>
+        <div class="filters">
+          <select id="gateLimit" title="Rows to show">
+            <option value="20" selected>20 rows</option>
+            <option value="50">50 rows</option>
+            <option value="100">100 rows</option>
+            <option value="all">All rows</option>
+          </select>
+        </div>
+      </div>
+      <div class="muted table-meta" id="gateMeta">Showing 0 of 0 entries</div>
+      <div class="table-shell compact">
+        <table id="gateTable">
+          <thead>
+            <tr>
+              <th>Route (short)</th>
+              <th>Window</th>
+              <th>Requests</th>
+              <th>Tokens</th>
+              <th>Updated</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </section>
 
     <section class="card wide">
