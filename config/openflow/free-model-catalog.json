@@ -1,0 +1,275 @@
+{
+  "updatedAt": "2026-03-03T07:18:08Z",
+  "source": "searcher-agent",
+  "items": [
+    {
+      "provider": "Cerebras",
+      "model": "gpt-oss-120b",
+      "offerType": "free-tier",
+      "freeUntil": null,
+      "resetCadence": "daily+minute",
+      "limits": {
+        "rpm": 30,
+        "tpm": 64000,
+        "rpd": 14400,
+        "dailyTokens": 1000000,
+        "weeklyTokens": null,
+        "monthlyTokens": null
+      },
+      "apiAccess": "OpenAI-compatible API at https://api.cerebras.ai/v1 (Bearer key), endpoint /chat/completions",
+      "evidence": [
+        {
+          "title": "Cerebras Docs - OpenAI GPT OSS model page",
+          "url": "https://inference-docs.cerebras.ai/models/openai-oss"
+        },
+        {
+          "title": "Cerebras Docs - Rate Limits",
+          "url": "https://inference-docs.cerebras.ai/support/rate-limits"
+        }
+      ],
+      "rankScore": 9.3
+    },
+    {
+      "provider": "Cerebras",
+      "model": "llama3.1-8b",
+      "offerType": "free-tier",
+      "freeUntil": null,
+      "resetCadence": "daily+minute",
+      "limits": {
+        "rpm": 30,
+        "tpm": 60000,
+        "rpd": 14400,
+        "dailyTokens": 1000000,
+        "weeklyTokens": null,
+        "monthlyTokens": null
+      },
+      "apiAccess": "OpenAI-compatible API at https://api.cerebras.ai/v1 (Bearer key), endpoints /chat/completions or /completions",
+      "evidence": [
+        {
+          "title": "Cerebras Docs - Llama 3.1 8B model page",
+          "url": "https://inference-docs.cerebras.ai/models/llama-31-8b"
+        },
+        {
+          "title": "Cerebras Docs - Rate Limits",
+          "url": "https://inference-docs.cerebras.ai/support/rate-limits"
+        }
+      ],
+      "rankScore": 9.0
+    },
+    {
+      "provider": "Cerebras",
+      "model": "qwen-3-235b-a22b-instruct-2507",
+      "offerType": "free-tier",
+      "freeUntil": null,
+      "resetCadence": "daily+minute",
+      "limits": {
+        "rpm": 30,
+        "tpm": 60000,
+        "rpd": 14400,
+        "dailyTokens": 1000000,
+        "weeklyTokens": null,
+        "monthlyTokens": null
+      },
+      "apiAccess": "OpenAI-compatible API at https://api.cerebras.ai/v1 (Bearer key), /chat/completions or /completions",
+      "evidence": [
+        {
+          "title": "Cerebras Docs - Qwen 3 235B model page",
+          "url": "https://inference-docs.cerebras.ai/models/qwen-3-235b-2507"
+        },
+        {
+          "title": "Cerebras Docs - Rate Limits",
+          "url": "https://inference-docs.cerebras.ai/support/rate-limits"
+        }
+      ],
+      "rankScore": 8.6
+    },
+    {
+      "provider": "Cerebras",
+      "model": "zai-glm-4.7",
+      "offerType": "free-tier",
+      "freeUntil": null,
+      "resetCadence": "daily+minute",
+      "limits": {
+        "rpm": 10,
+        "tpm": 60000,
+        "rpd": 100,
+        "dailyTokens": 1000000,
+        "weeklyTokens": null,
+        "monthlyTokens": null
+      },
+      "apiAccess": "OpenAI-compatible API at https://api.cerebras.ai/v1 (Bearer key), /chat/completions",
+      "evidence": [
+        {
+          "title": "Cerebras Docs - Z.ai GLM 4.7 model page",
+          "url": "https://inference-docs.cerebras.ai/models/zai-glm-47"
+        },
+        {
+          "title": "Cerebras Docs - Rate Limits",
+          "url": "https://inference-docs.cerebras.ai/support/rate-limits"
+        }
+      ],
+      "rankScore": 7.8
+    },
+    {
+      "provider": "Groq",
+      "model": "llama-3.1-8b-instant",
+      "offerType": "free-tier",
+      "freeUntil": null,
+      "resetCadence": "daily",
+      "limits": {
+        "rpm": 30,
+        "tpm": 6000,
+        "rpd": 14400,
+        "dailyTokens": 500000,
+        "weeklyTokens": null,
+        "monthlyTokens": null
+      },
+      "apiAccess": "OpenAI-compatible chat/completions at https://api.groq.com/openai/v1 with Groq API key",
+      "evidence": [
+        {
+          "title": "Groq Docs - Rate Limits",
+          "url": "https://console.groq.com/docs/rate-limits"
+        }
+      ],
+      "rankScore": 9.1
+    },
+    {
+      "provider": "Groq",
+      "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+      "offerType": "free-tier",
+      "freeUntil": null,
+      "resetCadence": "daily",
+      "limits": {
+        "rpm": 30,
+        "tpm": 30000,
+        "rpd": 1000,
+        "dailyTokens": 500000,
+        "weeklyTokens": null,
+        "monthlyTokens": null
+      },
+      "apiAccess": "OpenAI-compatible chat/completions at https://api.groq.com/openai/v1 with Groq API key",
+      "evidence": [
+        {
+          "title": "Groq Docs - Rate Limits",
+          "url": "https://console.groq.com/docs/rate-limits"
+        }
+      ],
+      "rankScore": 8.8
+    },
+    {
+      "provider": "Cohere",
+      "model": "Command R",
+      "offerType": "trial",
+      "freeUntil": null,
+      "resetCadence": "monthly",
+      "limits": {
+        "rpm": 20,
+        "tpm": null,
+        "rpd": null,
+        "dailyTokens": null,
+        "weeklyTokens": null,
+        "monthlyTokens": null
+      },
+      "apiAccess": "Cohere API at https://api.cohere.com (trial/evaluation key from dashboard)",
+      "evidence": [
+        {
+          "title": "Cohere Docs - Different Types of API Keys and Rate Limits",
+          "url": "https://docs.cohere.com/docs/rate-limits"
+        }
+      ],
+      "rankScore": 7.6
+    },
+    {
+      "provider": "GitHub Models",
+      "model": "xAI Grok-3-Mini (Copilot Free)",
+      "offerType": "free-tier",
+      "freeUntil": null,
+      "resetCadence": "daily",
+      "limits": {
+        "rpm": 2,
+        "tpm": null,
+        "rpd": 30,
+        "dailyTokens": null,
+        "weeklyTokens": null,
+        "monthlyTokens": null
+      },
+      "apiAccess": "GitHub Models API with GitHub PAT (models:read), Azure AI Inference-compatible SDK/REST",
+      "evidence": [
+        {
+          "title": "GitHub Docs - Prototyping with AI models (Rate limits)",
+          "url": "https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#rate-limits"
+        }
+      ],
+      "rankScore": 7.1
+    },
+    {
+      "provider": "Hugging Face",
+      "model": "Inference Providers (routed)",
+      "offerType": "free-tier",
+      "freeUntil": null,
+      "resetCadence": "monthly",
+      "limits": {
+        "rpm": null,
+        "tpm": null,
+        "rpd": null,
+        "dailyTokens": null,
+        "weeklyTokens": null,
+        "monthlyTokens": null
+      },
+      "apiAccess": "OpenAI-compatible route at https://router.huggingface.co/v1 with HF token; monthly free credits auto-apply when routed by HF",
+      "evidence": [
+        {
+          "title": "Hugging Face Docs - Inference Providers Pricing and Billing",
+          "url": "https://huggingface.co/docs/inference-providers/pricing"
+        }
+      ],
+      "rankScore": 6.4
+    },
+    {
+      "provider": "Google",
+      "model": "Gemini API (Free tier)",
+      "offerType": "free-tier",
+      "freeUntil": null,
+      "resetCadence": "unknown",
+      "limits": {
+        "rpm": null,
+        "tpm": null,
+        "rpd": null,
+        "dailyTokens": null,
+        "weeklyTokens": null,
+        "monthlyTokens": null
+      },
+      "apiAccess": "Gemini API via Google AI Studio API key",
+      "evidence": [
+        {
+          "title": "Google AI for Developers - Gemini API rate limits",
+          "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+        }
+      ],
+      "rankScore": 6.0
+    }
+  ],
+  "schema": {
+    "provider": "string",
+    "model": "string",
+    "offerType": "trial|promo|free-tier",
+    "freeUntil": "ISO-8601|null",
+    "resetCadence": "hourly|daily|weekly|monthly|none|unknown",
+    "limits": {
+      "rpm": "number|null",
+      "tpm": "number|null",
+      "rpd": "number|null",
+      "dailyTokens": "number|null",
+      "weeklyTokens": "number|null",
+      "monthlyTokens": "number|null"
+    },
+    "apiAccess": "how to access in OpenFlow/OpenClaw",
+    "evidence": [
+      {
+        "title": "string",
+        "url": "string"
+      }
+    ],
+    "rankScore": "number"
+  }
+}

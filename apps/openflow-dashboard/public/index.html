@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF-Guard Command Dashboard</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>OF-Guard Dashboard</h1>
+      <div id="meta">Connecting…</div>
+      <div class="live-strip">
+        <span class="dot" id="liveDot"></span>
+        <span id="refreshBadge" class="muted">Live mode</span>
+        <span class="divider">•</span>
+        <span id="countdown" class="muted">next refresh in --s</span>
+      </div>
+    </div>
+    <div class="controls">
+      <label>Auto refresh
+        <select id="interval">
+          <option value="10000" selected>10s (recommended)</option>
+          <option value="20000">20s</option>
+          <option value="30000">30s</option>
+          <option value="60000">60s</option>
+        </select>
+      </label>
+      <button id="toggleRefresh" class="btn">Pause</button>
+      <button id="refreshNow" class="btn primary">Refresh now</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="kpi-grid">
+      <article class="card">
+        <h2>Active Route</h2>
+        <div id="kpiActive" class="kpi">-</div>
+        <div id="kpiActiveSub" class="muted">-</div>
+      </article>
+
+      <article class="card">
+        <h2>Guard + Routing</h2>
+        <div id="kpiGuard" class="kpi">-</div>
+        <div id="kpiRouting" class="muted">-</div>
+      </article>
+
+      <article class="card">
+        <h2>Health Snapshot</h2>
+        <div class="chips" id="kpiHealthChips"></div>
+        <div id="kpiHealthSub" class="muted">-</div>
+      </article>
+
+      <article class="card">
+        <h2>Rate Gate Pressure</h2>
+        <div class="bar-wrap">
+          <span>Requests</span>
+          <div class="bar"><i id="barReq"></i></div>
+          <span id="barReqText">0%</span>
+        </div>
+        <div class="bar-wrap">
+          <span>Tokens</span>
+          <div class="bar"><i id="barTok"></i></div>
+          <span id="barTokText">0%</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="card wide gradient-card">
+      <div class="row between wrap-gap">
+        <h2>Live Subagent Model Usage</h2>
+        <span class="badge info" id="workersUpdated">updated -</span>
+      </div>
+      <div class="workers-grid" id="workersGrid"></div>
+      <div class="workers-note muted">Role agents follow OF-Guard active route unless explicitly overridden per task.</div>
+    </section>
+
+    <section class="card">
+      <div class="row between">
+        <h2>Default Role Pipeline</h2>
+        <span class="badge info" id="pipelineCount">0 roles</span>
+      </div>
+      <div id="pipelineRoles" class="pipeline"></div>
+    </section>
+
+    <section class="card">
+      <div class="row between">
+        <h2>Daily Sync Diff</h2>
+        <span id="dailyUpdated" class="muted">-</span>
+      </div>
+      <div class="chips" id="dailyChips"></div>
+      <div class="diff-grid">
+        <div>
+          <h3>Added</h3>
+          <ul id="dailyAdded"></ul>
+        </div>
+        <div>
+          <h3>Removed</h3>
+          <ul id="dailyRemoved"></ul>
+        </div>
+        <div>
+          <h3>Changed</h3>
+          <ul id="dailyChanged"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <div class="row between wrap-gap">
+        <h2>Models (Quality + Limits)</h2>
+        <div class="filters">
+          <input id="modelSearch" placeholder="Search model / provider" />
+          <select id="providerFilter">
+            <option value="all">All providers</option>
+          </select>
+          <select id="modelPageSize" title="Rows per page">
+            <option value="25" selected>25/page</option>
+            <option value="50">50/page</option>
+            <option value="100">100/page</option>
+            <option value="all">All</option>
+          </select>
+          <div class="pager">
+            <button id="modelPrevPage" class="btn" type="button">Prev</button>
+            <span id="modelPageInfo" class="muted">Page 1/1</span>
+            <button id="modelNextPage" class="btn" type="button">Next</button>
+          </div>
+        </div>
+      </div>
+      <div class="muted table-meta" id="modelsMeta">Showing 0 of 0 models</div>
+      <table id="modelsTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Provider</th>
+            <th>Model</th>
+            <th>Priority</th>
+            <th>RPM</th>
+            <th>TPM</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="card wide gradient-card">
+      <div class="row between wrap-gap">
+        <h2>Account Health Feed</h2>
+        <div class="filters">
+          <select id="healthStatusFilter">
+            <option value="all">All status</option>
+            <option value="pass">PASS</option>
+            <option value="fail">FAIL</option>
+            <option value="unk">UNK</option>
+          </select>
+          <select id="healthLimit">
+            <option value="25" selected>25 rows</option>
+            <option value="50">50 rows</option>
+            <option value="100">100 rows</option>
+            <option value="all">All rows</option>
+          </select>
+          <label class="toggle-wrap"><input type="checkbox" id="healthFailFirst" /> Fail first</label>
+          <input id="healthSearch" placeholder="Search provider/model/account" />
+        </div>
+      </div>
+      <div class="chips" id="healthProviderChips"></div>
+      <div class="muted health-meta" id="healthMeta">-</div>
+      <div class="table-shell compact">
+        <table id="healthTable">
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>Model</th>
+              <th>Account</th>
+              <th>Status</th>
+              <th>Usage %</th>
+              <th>Checked At</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <div class="row between wrap-gap">
+        <h2>Rate Gate Entries</h2>
+        <div class="filters">
+          <select id="gateLimit" title="Rows to show">
+            <option value="20" selected>20 rows</option>
+            <option value="50">50 rows</option>
+            <option value="100">100 rows</option>
+            <option value="all">All rows</option>
+          </select>
+        </div>
+      </div>
+      <div class="muted table-meta" id="gateMeta">Showing 0 of 0 entries</div>
+      <div class="table-shell compact">
+        <table id="gateTable">
+          <thead>
+            <tr>
+              <th>Route (short)</th>
+              <th>Window</th>
+              <th>Requests</th>
+              <th>Tokens</th>
+              <th>Updated</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>Policy + Live Events</h2>
+      <div class="event-grid">
+        <div>
+          <h3>Policy</h3>
+          <div id="policySummary" class="muted">-</div>
+          <pre id="policyRaw">-</pre>
+        </div>
+        <div>
+          <h3>Autoswitch log (tail)</h3>
+          <pre id="eventsAutoswitch">-</pre>
+        </div>
+        <div>
+          <h3>Policy log (tail)</h3>
+          <pre id="eventsPolicy">-</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>Raw JSON Inspectors</h2>
+      <details>
+        <summary>State JSON</summary>
+        <pre id="rawState">-</pre>
+      </details>
+      <details>
+        <summary>Summary JSON</summary>
+        <pre id="rawSummary">-</pre>
+      </details>
+      <details>
+        <summary>Gate JSON</summary>
+        <pre id="rawGate">-</pre>
+      </details>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

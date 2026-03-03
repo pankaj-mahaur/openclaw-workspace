@@ -1,0 +1,53 @@
+{
+  "taskId": "task_20260303090058616_humdlr",
+  "token": "tsktok_eyJ0YXNrSWQiOiJ0YXNrXzIwMjYwMzAzMDkwMDU4NjE2X2h1bWRsciIsImlhdCI6IjIwMjYtMDMtMDNUMDk6MDA6NTguNjE2WiJ9",
+  "name": "deep-research-demo",
+  "status": "completed",
+  "createdAt": "2026-03-03T09:00:58.616Z",
+  "updatedAt": "2026-03-03T09:01:46.876Z",
+  "lockMinutes": 10,
+  "lockedUntil": "2026-03-03T09:10:58.616Z",
+  "routeAtStart": {
+    "provider": "groq",
+    "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+    "account": "gmail_1"
+  },
+  "note": null,
+  "checkpoints": [
+    {
+      "at": "2026-03-03T09:00:58.616Z",
+      "type": "start",
+      "summary": "Task started: deep-research-demo",
+      "route": {
+        "provider": "groq",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "account": "gmail_1"
+      },
+      "progress": 0
+    },
+    {
+      "at": "2026-03-03T09:00:58.675Z",
+      "type": "checkpoint",
+      "summary": "completed source discovery phase",
+      "progress": 35,
+      "route": {
+        "provider": "groq",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "account": "gmail_1"
+      },
+      "guardLockedUntil": "2026-03-03T09:10:58.616Z",
+      "meta": null
+    },
+    {
+      "at": "2026-03-03T09:01:46.875Z",
+      "type": "complete",
+      "summary": "demo done",
+      "route": {
+        "provider": "groq",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "account": "gmail_1"
+      }
+    }
+  ],
+  "completedAt": "2026-03-03T09:01:46.876Z"
+}

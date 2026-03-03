@@ -9,3 +9,9 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# OpenFlow runtime/secrets
+logs/
+apps/openflow-dashboard/dashboard.pid
+config/openflow/subagent/keys.env
+config/openflow/subagent/dashboard.env

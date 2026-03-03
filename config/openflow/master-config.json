@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "name": "openflow-main-default-config",
+    "version": "1.0.0-main",
+    "updatedAt": "2026-03-03T07:58:00Z"
+  },
+  "scope": "main-session-default",
+  "runtimeDefaults": {
+    "provider": "openai",
+    "model": "openai-codex/gpt-5.3-codex"
+  },
+  "routing": {
+    "strategy": "default_only",
+    "switchBeforePercent": 85,
+    "switchBeforeMinutes": 30,
+    "preferFreeUntilLatest": false,
+    "fallbackOrder": [
+      "openai-codex/gpt-5.3-codex"
+    ]
+  },
+  "gateway": {
+    "commands": {
+      "status": "openclaw gateway status",
+      "start": "openclaw gateway start",
+      "stop": "openclaw gateway stop",
+      "restart": "openclaw gateway restart"
+    },
+    "autoRestartOnSwitch": false
+  },
+  "providers": [
+    {
+      "id": "openai",
+      "label": "OpenAI",
+      "enabled": true,
+      "apiStyle": "openai-compatible",
+      "baseUrl": "https://api.openai.com/v1",
+      "auth": {
+        "type": "bearer"
+      },
+      "accounts": [
+        {
+          "id": "gmail_1",
+          "authEnv": "OPENAI_API_KEY_GMAIL1",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_2",
+          "authEnv": "OPENAI_API_KEY_GMAIL2",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_3",
+          "authEnv": "OPENAI_API_KEY_GMAIL3",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_4",
+          "authEnv": "OPENAI_API_KEY_GMAIL4",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_5",
+          "authEnv": "OPENAI_API_KEY_GMAIL5",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_6",
+          "authEnv": "OPENAI_API_KEY_GMAIL6",
+          "status": "pending"
+        }
+      ],
+      "models": [
+        {
+          "id": "openai-codex/gpt-5.3-codex",
+          "displayName": "GPT-5.3 Codex",
+          "priority": 1,
+          "freeWindow": {
+            "type": "subscription_or_plan_bound",
+            "freeUntil": null,
+            "resetCadence": "weekly_or_plan_specific"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Main default route."
+        }
+      ]
+    }
+  ],
+  "searcher": {
+    "output": {
+      "markdown": "agents/searcher/reports/free-models-latest.md",
+      "json": "config/openflow/free-model-catalog.json"
+    },
+    "ranking": [
+      "quality",
+      "effective_free_tokens",
+      "time_to_expiry",
+      "rpm",
+      "tpm"
+    ]
+  },
+  "tester": {
+    "requestTimeoutMs": 30000,
+    "saveEveryRun": true,
+    "stateFile": "config/openflow/runtime-state.json"
+  }
+}

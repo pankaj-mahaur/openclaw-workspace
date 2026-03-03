@@ -1,0 +1,32 @@
+{
+  "strict": true,
+  "allowedDomains": [
+    "console.groq.com",
+    "api.groq.com",
+    "inference-docs.cerebras.ai",
+    "docs.cohere.com",
+    "docs.github.com",
+    "huggingface.co",
+    "ai.google.dev"
+  ],
+  "blockedDomains": [
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0",
+    "169.254.169.254",
+    "metadata.google.internal"
+  ],
+  "forbiddenKeywords": [
+    "malware",
+    "exploit",
+    "payload",
+    "ransomware",
+    "credential theft",
+    "phishing kit",
+    "botnet",
+    "sql injection",
+    "xss"
+  ],
+  "maxEvidenceLinksPerItem": 5,
+  "notes": "Searcher is limited to provider docs/rate-limit pages for free-tier model intelligence."
+}

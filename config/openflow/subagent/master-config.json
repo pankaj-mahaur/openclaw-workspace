@@ -1,0 +1,3423 @@
+{
+  "meta": {
+    "name": "openflow-master-config",
+    "version": "1.4.0-subagent-quality",
+    "updatedAt": "2026-03-03T15:35:48Z"
+  },
+  "runtimeDefaults": {
+    "provider": "openai",
+    "model": "openai-codex/gpt-5.3-codex"
+  },
+  "routing": {
+    "strategy": "best_value_then_fallback",
+    "switchBeforePercent": 85,
+    "switchBeforeMinutes": 30,
+    "preferFreeUntilLatest": true,
+    "fallbackOrder": [
+      "meta-llama/llama-4-maverick-17b-128e-instruct",
+      "meta-llama/llama-4-scout-17b-16e-instruct",
+      "models/gemini-2.5-flash",
+      "qwen/qwen3.5-397b-a17b",
+      "mistralai/mistral-large-3-675b-instruct-2512",
+      "meta/llama-4-maverick-17b-128e-instruct",
+      "qwen/qwen3-coder-480b-a35b-instruct",
+      "openai/gpt-oss-120b",
+      "bytedance/seed-oss-36b-instruct",
+      "moonshotai/kimi-k2-instruct-0905",
+      "mistralai/devstral-2-123b-instruct-2512",
+      "llama-3.3-70b-versatile",
+      "qwen/qwen3-32b",
+      "gpt-oss-120b",
+      "openai-codex/gpt-5.3-codex"
+    ]
+  },
+  "gateway": {
+    "commands": {
+      "status": "openclaw gateway status",
+      "start": "openclaw gateway start",
+      "stop": "openclaw gateway stop",
+      "restart": "openclaw gateway restart"
+    },
+    "autoRestartOnSwitch": false
+  },
+  "providers": [
+    {
+      "id": "openai",
+      "label": "OpenAI",
+      "enabled": true,
+      "apiStyle": "openai-compatible",
+      "baseUrl": "https://api.openai.com/v1",
+      "auth": {
+        "type": "bearer"
+      },
+      "accounts": [
+        {
+          "id": "gmail_1",
+          "authEnv": "OPENAI_API_KEY_GMAIL1",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_2",
+          "authEnv": "OPENAI_API_KEY_GMAIL2",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_3",
+          "authEnv": "OPENAI_API_KEY_GMAIL3",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_4",
+          "authEnv": "OPENAI_API_KEY_GMAIL4",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_5",
+          "authEnv": "OPENAI_API_KEY_GMAIL5",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_6",
+          "authEnv": "OPENAI_API_KEY_GMAIL6",
+          "status": "pending"
+        }
+      ],
+      "models": [
+        {
+          "id": "openai-codex/gpt-5.3-codex",
+          "displayName": "GPT-5.3 Codex",
+          "priority": 3,
+          "freeWindow": {
+            "type": "subscription_or_plan_bound",
+            "freeUntil": null,
+            "resetCadence": "weekly_or_plan_specific"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Fill exact limits from official provider docs/account dashboard."
+        }
+      ]
+    },
+    {
+      "id": "groq",
+      "label": "Groq",
+      "enabled": true,
+      "apiStyle": "openai-compatible",
+      "baseUrl": "https://api.groq.com/openai/v1",
+      "auth": {
+        "type": "bearer"
+      },
+      "accounts": [
+        {
+          "id": "gmail_1",
+          "authEnv": "GROQ_API_KEY_GMAIL1",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_2",
+          "authEnv": "GROQ_API_KEY_GMAIL2",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_3",
+          "authEnv": "GROQ_API_KEY_GMAIL3",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_4",
+          "authEnv": "GROQ_API_KEY_GMAIL4",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_5",
+          "authEnv": "GROQ_API_KEY_GMAIL5",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_6",
+          "authEnv": "GROQ_API_KEY_GMAIL6",
+          "status": "pending"
+        }
+      ],
+      "models": [
+        {
+          "id": "meta-llama/llama-4-scout-17b-16e-instruct",
+          "displayName": "Groq Llama 4 Scout 17B 16E Instruct",
+          "enabled": true,
+          "priority": 2,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 30000,
+            "dailyTokens": 500000,
+            "weeklyTokens": null
+          },
+          "notes": "Throughput fallback after Maverick; 30k TPM on free tier."
+        },
+        {
+          "id": "meta-llama/llama-4-maverick-17b-128e-instruct",
+          "displayName": "Groq Llama 4 Maverick 17B 128E Instruct",
+          "enabled": true,
+          "priority": 1,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 6000,
+            "dailyTokens": 500000,
+            "weeklyTokens": null
+          },
+          "notes": "Quality-first primary (best-of-best mode); lower TPM so faster rotation expected."
+        },
+        {
+          "id": "llama-3.3-70b-versatile",
+          "displayName": "Groq Llama 3.3 70B Versatile",
+          "enabled": true,
+          "priority": 3,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 12000,
+            "dailyTokens": 100000,
+            "weeklyTokens": null
+          },
+          "notes": "Strong quality baseline, lower daily token cap than Scout/Maverick."
+        },
+        {
+          "id": "moonshotai/kimi-k2-instruct-0905",
+          "displayName": "Groq Kimi K2 Instruct 0905",
+          "enabled": true,
+          "priority": 4,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 60,
+            "tpm": 10000,
+            "dailyTokens": 300000,
+            "weeklyTokens": null
+          },
+          "notes": "Good coding/reasoning quality with high RPM on free tier."
+        },
+        {
+          "id": "openai/gpt-oss-120b",
+          "displayName": "Groq OpenAI GPT-OSS 120B",
+          "enabled": true,
+          "priority": 5,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 8000,
+            "dailyTokens": 200000,
+            "weeklyTokens": null
+          },
+          "notes": "Strong open model fallback for reasoning/coding."
+        },
+        {
+          "id": "qwen/qwen3-32b",
+          "displayName": "Groq Qwen3 32B",
+          "enabled": true,
+          "priority": 6,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 60,
+            "tpm": 6000,
+            "dailyTokens": 500000,
+            "weeklyTokens": null
+          },
+          "notes": "Fast multilingual fallback with generous free daily token cap."
+        },
+        {
+          "id": "llama-3.1-8b-instant",
+          "displayName": "Groq Llama 3.1 8B Instant",
+          "enabled": false,
+          "priority": 99,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 6000,
+            "dailyTokens": 500000,
+            "weeklyTokens": null
+          },
+          "notes": "Disabled as weak-tier fallback per user preference; can be re-enabled if needed."
+        },
+        {
+          "id": "allam-2-7b",
+          "displayName": "Groq allam-2-7b",
+          "enabled": true,
+          "priority": 100,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 6000,
+            "dailyTokens": 500000,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        },
+        {
+          "id": "canopylabs/orpheus-arabic-saudi",
+          "displayName": "Groq canopylabs/orpheus-arabic-saudi",
+          "enabled": true,
+          "priority": 101,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 10,
+            "tpm": 1200,
+            "dailyTokens": 3600,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        },
+        {
+          "id": "canopylabs/orpheus-v1-english",
+          "displayName": "Groq canopylabs/orpheus-v1-english",
+          "enabled": true,
+          "priority": 102,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 10,
+            "tpm": 1200,
+            "dailyTokens": 3600,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        },
+        {
+          "id": "groq/compound",
+          "displayName": "Groq groq/compound",
+          "enabled": true,
+          "priority": 103,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 70000,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        },
+        {
+          "id": "groq/compound-mini",
+          "displayName": "Groq groq/compound-mini",
+          "enabled": true,
+          "priority": 104,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 70000,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        },
+        {
+          "id": "meta-llama/llama-guard-4-12b",
+          "displayName": "Groq meta-llama/llama-guard-4-12b",
+          "enabled": true,
+          "priority": 105,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 15000,
+            "dailyTokens": 500000,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        },
+        {
+          "id": "meta-llama/llama-prompt-guard-2-22m",
+          "displayName": "Groq meta-llama/llama-prompt-guard-2-22m",
+          "enabled": true,
+          "priority": 106,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 15000,
+            "dailyTokens": 500000,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        },
+        {
+          "id": "meta-llama/llama-prompt-guard-2-86m",
+          "displayName": "Groq meta-llama/llama-prompt-guard-2-86m",
+          "enabled": true,
+          "priority": 107,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 15000,
+            "dailyTokens": 500000,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        },
+        {
+          "id": "moonshotai/kimi-k2-instruct",
+          "displayName": "Groq moonshotai/kimi-k2-instruct",
+          "enabled": true,
+          "priority": 108,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 60,
+            "tpm": 10000,
+            "dailyTokens": 300000,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        },
+        {
+          "id": "openai/gpt-oss-20b",
+          "displayName": "Groq openai/gpt-oss-20b",
+          "enabled": true,
+          "priority": 109,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 8000,
+            "dailyTokens": 200000,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        },
+        {
+          "id": "openai/gpt-oss-safeguard-20b",
+          "displayName": "Groq openai/gpt-oss-safeguard-20b",
+          "enabled": true,
+          "priority": 110,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 30,
+            "tpm": 8000,
+            "dailyTokens": 200000,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        },
+        {
+          "id": "whisper-large-v3",
+          "displayName": "Groq whisper-large-v3",
+          "enabled": true,
+          "priority": 111,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 20,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        },
+        {
+          "id": "whisper-large-v3-turbo",
+          "displayName": "Groq whisper-large-v3-turbo",
+          "enabled": true,
+          "priority": 112,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 20,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Auto-added from Groq /models."
+        }
+      ],
+      "modelPolicy": {
+        "mode": "quality-only-shortlist",
+        "disabledReason": "exclude weak/safety/audio/specialized models from default routing"
+      }
+    },
+    {
+      "id": "gemini",
+      "label": "Google Gemini",
+      "enabled": true,
+      "apiStyle": "openai-compatible",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "auth": {
+        "type": "bearer"
+      },
+      "accounts": [
+        {
+          "id": "gmail_1",
+          "authEnv": "GEMINI_API_KEY_GMAIL1",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_2",
+          "authEnv": "GEMINI_API_KEY_GMAIL2",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_3",
+          "authEnv": "GEMINI_API_KEY_GMAIL3",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_5",
+          "authEnv": "GEMINI_API_KEY_GMAIL5",
+          "status": "pending"
+        }
+      ],
+      "models": [
+        {
+          "id": "models/gemini-2.5-flash",
+          "displayName": "Gemini 2.5 Flash",
+          "enabled": true,
+          "priority": 8,
+          "freeWindow": {
+            "type": "free-tier",
+            "freeUntil": null,
+            "resetCadence": "daily+minute"
+          },
+          "limits": {
+            "rpm": 10,
+            "tpm": 250000,
+            "dailyTokens": null,
+            "weeklyTokens": null,
+            "rpd": 250
+          },
+          "notes": "Free-tier reference from Google AI forum staff table: 10 RPM, 250k TPM, 250 RPD; monitor AI Studio as limits can change by tier/account."
+        }
+      ],
+      "modelPolicy": {
+        "mode": "quality-only-shortlist",
+        "disabledReason": "keep only best text-generation Gemini models in routing"
+      }
+    },
+    {
+      "id": "nvidia",
+      "label": "NVIDIA NIM (Build)",
+      "enabled": true,
+      "apiStyle": "openai-compatible",
+      "baseUrl": "https://integrate.api.nvidia.com/v1",
+      "auth": {
+        "type": "bearer"
+      },
+      "accounts": [
+        {
+          "id": "gmail_1",
+          "authEnv": "NVIDIA_API_KEY_GMAIL1",
+          "status": "active"
+        },
+        {
+          "id": "gmail_2",
+          "authEnv": "NVIDIA_API_KEY_GMAIL2",
+          "status": "active",
+          "updatedAt": "2026-03-03T15:14:21.423Z"
+        },
+        {
+          "id": "gmail_3",
+          "authEnv": "NVIDIA_API_KEY_GMAIL3",
+          "status": "active",
+          "updatedAt": "2026-03-03T15:35:48Z"
+        },
+        {
+          "id": "gmail_4",
+          "authEnv": "NVIDIA_API_KEY_GMAIL4",
+          "status": "active",
+          "updatedAt": "2026-03-03T15:35:48Z"
+        },
+        {
+          "id": "gmail_5",
+          "authEnv": "NVIDIA_API_KEY_GMAIL5",
+          "status": "pending"
+        },
+        {
+          "id": "gmail_6",
+          "authEnv": "NVIDIA_API_KEY_GMAIL6",
+          "status": "pending"
+        }
+      ],
+      "models": [
+        {
+          "id": "qwen/qwen3.5-397b-a17b",
+          "displayName": "NVIDIA qwen/qwen3.5-397b-a17b",
+          "enabled": true,
+          "priority": 1,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Top-tier quality shortlist on NVIDIA Build free prototyping access."
+        },
+        {
+          "id": "mistralai/mistral-large-3-675b-instruct-2512",
+          "displayName": "NVIDIA mistralai/mistral-large-3-675b-instruct-2512",
+          "enabled": true,
+          "priority": 4,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Top-tier quality shortlist on NVIDIA Build free prototyping access."
+        },
+        {
+          "id": "meta/llama-4-maverick-17b-128e-instruct",
+          "displayName": "NVIDIA meta/llama-4-maverick-17b-128e-instruct",
+          "enabled": true,
+          "priority": 5,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Top-tier quality shortlist on NVIDIA Build free prototyping access."
+        },
+        {
+          "id": "qwen/qwen3-coder-480b-a35b-instruct",
+          "displayName": "NVIDIA qwen/qwen3-coder-480b-a35b-instruct",
+          "enabled": true,
+          "priority": 6,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Top-tier quality shortlist on NVIDIA Build free prototyping access."
+        },
+        {
+          "id": "openai/gpt-oss-120b",
+          "displayName": "NVIDIA openai/gpt-oss-120b",
+          "enabled": true,
+          "priority": 7,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Top-tier quality shortlist on NVIDIA Build free prototyping access."
+        },
+        {
+          "id": "bytedance/seed-oss-36b-instruct",
+          "displayName": "NVIDIA bytedance/seed-oss-36b-instruct",
+          "enabled": true,
+          "priority": 8,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Top-tier quality shortlist on NVIDIA Build free prototyping access."
+        },
+        {
+          "id": "moonshotai/kimi-k2-instruct-0905",
+          "displayName": "NVIDIA moonshotai/kimi-k2-instruct-0905",
+          "enabled": true,
+          "priority": 10,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Top-tier quality shortlist on NVIDIA Build free prototyping access."
+        },
+        {
+          "id": "mistralai/devstral-2-123b-instruct-2512",
+          "displayName": "NVIDIA mistralai/devstral-2-123b-instruct-2512",
+          "enabled": true,
+          "priority": 11,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Top-tier quality shortlist on NVIDIA Build free prototyping access."
+        },
+        {
+          "id": "01-ai/yi-large",
+          "displayName": "NVIDIA 01-ai/yi-large",
+          "enabled": true,
+          "priority": 100,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "abacusai/dracarys-llama-3.1-70b-instruct",
+          "displayName": "NVIDIA abacusai/dracarys-llama-3.1-70b-instruct",
+          "enabled": true,
+          "priority": 101,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "adept/fuyu-8b",
+          "displayName": "NVIDIA adept/fuyu-8b",
+          "enabled": true,
+          "priority": 102,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "ai21labs/jamba-1.5-large-instruct",
+          "displayName": "NVIDIA ai21labs/jamba-1.5-large-instruct",
+          "enabled": true,
+          "priority": 103,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "ai21labs/jamba-1.5-mini-instruct",
+          "displayName": "NVIDIA ai21labs/jamba-1.5-mini-instruct",
+          "enabled": true,
+          "priority": 104,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "aisingapore/sea-lion-7b-instruct",
+          "displayName": "NVIDIA aisingapore/sea-lion-7b-instruct",
+          "enabled": true,
+          "priority": 105,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "baai/bge-m3",
+          "displayName": "NVIDIA baai/bge-m3",
+          "enabled": true,
+          "priority": 106,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "baichuan-inc/baichuan2-13b-chat",
+          "displayName": "NVIDIA baichuan-inc/baichuan2-13b-chat",
+          "enabled": true,
+          "priority": 107,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "bigcode/starcoder2-15b",
+          "displayName": "NVIDIA bigcode/starcoder2-15b",
+          "enabled": true,
+          "priority": 108,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "bigcode/starcoder2-7b",
+          "displayName": "NVIDIA bigcode/starcoder2-7b",
+          "enabled": true,
+          "priority": 109,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "databricks/dbrx-instruct",
+          "displayName": "NVIDIA databricks/dbrx-instruct",
+          "enabled": true,
+          "priority": 110,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "deepseek-ai/deepseek-coder-6.7b-instruct",
+          "displayName": "NVIDIA deepseek-ai/deepseek-coder-6.7b-instruct",
+          "enabled": true,
+          "priority": 111,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "deepseek-ai/deepseek-r1-distill-llama-8b",
+          "displayName": "NVIDIA deepseek-ai/deepseek-r1-distill-llama-8b",
+          "enabled": true,
+          "priority": 112,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "deepseek-ai/deepseek-r1-distill-qwen-14b",
+          "displayName": "NVIDIA deepseek-ai/deepseek-r1-distill-qwen-14b",
+          "enabled": true,
+          "priority": 113,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "deepseek-ai/deepseek-r1-distill-qwen-32b",
+          "displayName": "NVIDIA deepseek-ai/deepseek-r1-distill-qwen-32b",
+          "enabled": true,
+          "priority": 114,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "deepseek-ai/deepseek-r1-distill-qwen-7b",
+          "displayName": "NVIDIA deepseek-ai/deepseek-r1-distill-qwen-7b",
+          "enabled": true,
+          "priority": 115,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "deepseek-ai/deepseek-v3.1",
+          "displayName": "NVIDIA deepseek-ai/deepseek-v3.1",
+          "enabled": true,
+          "priority": 116,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "deepseek-ai/deepseek-v3.1-terminus",
+          "displayName": "NVIDIA deepseek-ai/deepseek-v3.1-terminus",
+          "enabled": true,
+          "priority": 117,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/codegemma-1.1-7b",
+          "displayName": "NVIDIA google/codegemma-1.1-7b",
+          "enabled": true,
+          "priority": 118,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/codegemma-7b",
+          "displayName": "NVIDIA google/codegemma-7b",
+          "enabled": true,
+          "priority": 119,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/deplot",
+          "displayName": "NVIDIA google/deplot",
+          "enabled": true,
+          "priority": 120,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/gemma-2-27b-it",
+          "displayName": "NVIDIA google/gemma-2-27b-it",
+          "enabled": true,
+          "priority": 121,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/gemma-2-2b-it",
+          "displayName": "NVIDIA google/gemma-2-2b-it",
+          "enabled": true,
+          "priority": 122,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/gemma-2-9b-it",
+          "displayName": "NVIDIA google/gemma-2-9b-it",
+          "enabled": true,
+          "priority": 123,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/gemma-2b",
+          "displayName": "NVIDIA google/gemma-2b",
+          "enabled": true,
+          "priority": 124,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/gemma-3-12b-it",
+          "displayName": "NVIDIA google/gemma-3-12b-it",
+          "enabled": true,
+          "priority": 125,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/gemma-3-1b-it",
+          "displayName": "NVIDIA google/gemma-3-1b-it",
+          "enabled": true,
+          "priority": 126,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/gemma-3-27b-it",
+          "displayName": "NVIDIA google/gemma-3-27b-it",
+          "enabled": true,
+          "priority": 127,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/gemma-3-4b-it",
+          "displayName": "NVIDIA google/gemma-3-4b-it",
+          "enabled": true,
+          "priority": 128,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/gemma-3n-e2b-it",
+          "displayName": "NVIDIA google/gemma-3n-e2b-it",
+          "enabled": true,
+          "priority": 129,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/gemma-3n-e4b-it",
+          "displayName": "NVIDIA google/gemma-3n-e4b-it",
+          "enabled": true,
+          "priority": 130,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/gemma-7b",
+          "displayName": "NVIDIA google/gemma-7b",
+          "enabled": true,
+          "priority": 131,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/paligemma",
+          "displayName": "NVIDIA google/paligemma",
+          "enabled": true,
+          "priority": 132,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/recurrentgemma-2b",
+          "displayName": "NVIDIA google/recurrentgemma-2b",
+          "enabled": true,
+          "priority": 133,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "google/shieldgemma-9b",
+          "displayName": "NVIDIA google/shieldgemma-9b",
+          "enabled": true,
+          "priority": 134,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "gotocompany/gemma-2-9b-cpt-sahabatai-instruct",
+          "displayName": "NVIDIA gotocompany/gemma-2-9b-cpt-sahabatai-instruct",
+          "enabled": true,
+          "priority": 135,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "ibm/granite-3.0-3b-a800m-instruct",
+          "displayName": "NVIDIA ibm/granite-3.0-3b-a800m-instruct",
+          "enabled": true,
+          "priority": 136,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "ibm/granite-3.0-8b-instruct",
+          "displayName": "NVIDIA ibm/granite-3.0-8b-instruct",
+          "enabled": true,
+          "priority": 137,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "ibm/granite-3.3-8b-instruct",
+          "displayName": "NVIDIA ibm/granite-3.3-8b-instruct",
+          "enabled": true,
+          "priority": 138,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "ibm/granite-34b-code-instruct",
+          "displayName": "NVIDIA ibm/granite-34b-code-instruct",
+          "enabled": true,
+          "priority": 139,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "ibm/granite-8b-code-instruct",
+          "displayName": "NVIDIA ibm/granite-8b-code-instruct",
+          "enabled": true,
+          "priority": 140,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "igenius/colosseum_355b_instruct_16k",
+          "displayName": "NVIDIA igenius/colosseum_355b_instruct_16k",
+          "enabled": true,
+          "priority": 141,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "igenius/italia_10b_instruct_16k",
+          "displayName": "NVIDIA igenius/italia_10b_instruct_16k",
+          "enabled": true,
+          "priority": 142,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "institute-of-science-tokyo/llama-3.1-swallow-70b-instruct-v0.1",
+          "displayName": "NVIDIA institute-of-science-tokyo/llama-3.1-swallow-70b-instruct-v0.1",
+          "enabled": true,
+          "priority": 143,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "institute-of-science-tokyo/llama-3.1-swallow-8b-instruct-v0.1",
+          "displayName": "NVIDIA institute-of-science-tokyo/llama-3.1-swallow-8b-instruct-v0.1",
+          "enabled": true,
+          "priority": 144,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "marin/marin-8b-instruct",
+          "displayName": "NVIDIA marin/marin-8b-instruct",
+          "enabled": true,
+          "priority": 145,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mediatek/breeze-7b-instruct",
+          "displayName": "NVIDIA mediatek/breeze-7b-instruct",
+          "enabled": true,
+          "priority": 146,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "meta/codellama-70b",
+          "displayName": "NVIDIA meta/codellama-70b",
+          "enabled": true,
+          "priority": 147,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "meta/llama-3.1-405b-instruct",
+          "displayName": "NVIDIA meta/llama-3.1-405b-instruct",
+          "enabled": true,
+          "priority": 148,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "meta/llama-3.1-70b-instruct",
+          "displayName": "NVIDIA meta/llama-3.1-70b-instruct",
+          "enabled": true,
+          "priority": 149,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "meta/llama-3.1-8b-instruct",
+          "displayName": "NVIDIA meta/llama-3.1-8b-instruct",
+          "enabled": true,
+          "priority": 150,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "meta/llama-3.2-1b-instruct",
+          "displayName": "NVIDIA meta/llama-3.2-1b-instruct",
+          "enabled": true,
+          "priority": 151,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "meta/llama-3.2-3b-instruct",
+          "displayName": "NVIDIA meta/llama-3.2-3b-instruct",
+          "enabled": true,
+          "priority": 152,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "meta/llama-3.3-70b-instruct",
+          "displayName": "NVIDIA meta/llama-3.3-70b-instruct",
+          "enabled": true,
+          "priority": 153,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "meta/llama2-70b",
+          "displayName": "NVIDIA meta/llama2-70b",
+          "enabled": true,
+          "priority": 154,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "meta/llama3-70b-instruct",
+          "displayName": "NVIDIA meta/llama3-70b-instruct",
+          "enabled": true,
+          "priority": 155,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "meta/llama3-8b-instruct",
+          "displayName": "NVIDIA meta/llama3-8b-instruct",
+          "enabled": true,
+          "priority": 156,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/kosmos-2",
+          "displayName": "NVIDIA microsoft/kosmos-2",
+          "enabled": true,
+          "priority": 157,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/phi-3-medium-128k-instruct",
+          "displayName": "NVIDIA microsoft/phi-3-medium-128k-instruct",
+          "enabled": true,
+          "priority": 158,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/phi-3-medium-4k-instruct",
+          "displayName": "NVIDIA microsoft/phi-3-medium-4k-instruct",
+          "enabled": true,
+          "priority": 159,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/phi-3-mini-128k-instruct",
+          "displayName": "NVIDIA microsoft/phi-3-mini-128k-instruct",
+          "enabled": true,
+          "priority": 160,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/phi-3-mini-4k-instruct",
+          "displayName": "NVIDIA microsoft/phi-3-mini-4k-instruct",
+          "enabled": true,
+          "priority": 161,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/phi-3-small-128k-instruct",
+          "displayName": "NVIDIA microsoft/phi-3-small-128k-instruct",
+          "enabled": true,
+          "priority": 162,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/phi-3-small-8k-instruct",
+          "displayName": "NVIDIA microsoft/phi-3-small-8k-instruct",
+          "enabled": true,
+          "priority": 163,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/phi-3-vision-128k-instruct",
+          "displayName": "NVIDIA microsoft/phi-3-vision-128k-instruct",
+          "enabled": true,
+          "priority": 164,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/phi-3.5-mini-instruct",
+          "displayName": "NVIDIA microsoft/phi-3.5-mini-instruct",
+          "enabled": true,
+          "priority": 165,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/phi-3.5-moe-instruct",
+          "displayName": "NVIDIA microsoft/phi-3.5-moe-instruct",
+          "enabled": true,
+          "priority": 166,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/phi-4-mini-flash-reasoning",
+          "displayName": "NVIDIA microsoft/phi-4-mini-flash-reasoning",
+          "enabled": true,
+          "priority": 167,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/phi-4-mini-instruct",
+          "displayName": "NVIDIA microsoft/phi-4-mini-instruct",
+          "enabled": true,
+          "priority": 168,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "microsoft/phi-4-multimodal-instruct",
+          "displayName": "NVIDIA microsoft/phi-4-multimodal-instruct",
+          "enabled": true,
+          "priority": 169,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "minimaxai/minimax-m2.1",
+          "displayName": "NVIDIA minimaxai/minimax-m2.1",
+          "enabled": true,
+          "priority": 170,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "minimaxai/minimax-m2.5",
+          "displayName": "NVIDIA minimaxai/minimax-m2.5",
+          "enabled": true,
+          "priority": 171,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/codestral-22b-instruct-v0.1",
+          "displayName": "NVIDIA mistralai/codestral-22b-instruct-v0.1",
+          "enabled": true,
+          "priority": 172,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/magistral-small-2506",
+          "displayName": "NVIDIA mistralai/magistral-small-2506",
+          "enabled": true,
+          "priority": 173,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mamba-codestral-7b-v0.1",
+          "displayName": "NVIDIA mistralai/mamba-codestral-7b-v0.1",
+          "enabled": true,
+          "priority": 174,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mathstral-7b-v0.1",
+          "displayName": "NVIDIA mistralai/mathstral-7b-v0.1",
+          "enabled": true,
+          "priority": 175,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/ministral-14b-instruct-2512",
+          "displayName": "NVIDIA mistralai/ministral-14b-instruct-2512",
+          "enabled": true,
+          "priority": 176,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mistral-7b-instruct-v0.2",
+          "displayName": "NVIDIA mistralai/mistral-7b-instruct-v0.2",
+          "enabled": true,
+          "priority": 177,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mistral-7b-instruct-v0.3",
+          "displayName": "NVIDIA mistralai/mistral-7b-instruct-v0.3",
+          "enabled": true,
+          "priority": 178,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mistral-large",
+          "displayName": "NVIDIA mistralai/mistral-large",
+          "enabled": true,
+          "priority": 179,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mistral-large-2-instruct",
+          "displayName": "NVIDIA mistralai/mistral-large-2-instruct",
+          "enabled": true,
+          "priority": 180,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mistral-medium-3-instruct",
+          "displayName": "NVIDIA mistralai/mistral-medium-3-instruct",
+          "enabled": true,
+          "priority": 181,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mistral-nemotron",
+          "displayName": "NVIDIA mistralai/mistral-nemotron",
+          "enabled": true,
+          "priority": 182,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mistral-small-24b-instruct",
+          "displayName": "NVIDIA mistralai/mistral-small-24b-instruct",
+          "enabled": true,
+          "priority": 183,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mistral-small-3.1-24b-instruct-2503",
+          "displayName": "NVIDIA mistralai/mistral-small-3.1-24b-instruct-2503",
+          "enabled": true,
+          "priority": 184,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mixtral-8x22b-instruct-v0.1",
+          "displayName": "NVIDIA mistralai/mixtral-8x22b-instruct-v0.1",
+          "enabled": true,
+          "priority": 185,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mixtral-8x22b-v0.1",
+          "displayName": "NVIDIA mistralai/mixtral-8x22b-v0.1",
+          "enabled": true,
+          "priority": 186,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "mistralai/mixtral-8x7b-instruct-v0.1",
+          "displayName": "NVIDIA mistralai/mixtral-8x7b-instruct-v0.1",
+          "enabled": true,
+          "priority": 187,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "moonshotai/kimi-k2-instruct",
+          "displayName": "NVIDIA moonshotai/kimi-k2-instruct",
+          "enabled": true,
+          "priority": 188,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "moonshotai/kimi-k2-thinking",
+          "displayName": "NVIDIA moonshotai/kimi-k2-thinking",
+          "enabled": true,
+          "priority": 189,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nv-mistralai/mistral-nemo-12b-instruct",
+          "displayName": "NVIDIA nv-mistralai/mistral-nemo-12b-instruct",
+          "enabled": true,
+          "priority": 190,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/cosmos-reason2-8b",
+          "displayName": "NVIDIA nvidia/cosmos-reason2-8b",
+          "enabled": true,
+          "priority": 191,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/llama-3.1-nemotron-51b-instruct",
+          "displayName": "NVIDIA nvidia/llama-3.1-nemotron-51b-instruct",
+          "enabled": true,
+          "priority": 192,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/llama-3.1-nemotron-70b-instruct",
+          "displayName": "NVIDIA nvidia/llama-3.1-nemotron-70b-instruct",
+          "enabled": true,
+          "priority": 193,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/llama-3.1-nemotron-nano-4b-v1.1",
+          "displayName": "NVIDIA nvidia/llama-3.1-nemotron-nano-4b-v1.1",
+          "enabled": true,
+          "priority": 194,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/llama-3.1-nemotron-nano-8b-v1",
+          "displayName": "NVIDIA nvidia/llama-3.1-nemotron-nano-8b-v1",
+          "enabled": true,
+          "priority": 195,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/llama-3.1-nemotron-nano-vl-8b-v1",
+          "displayName": "NVIDIA nvidia/llama-3.1-nemotron-nano-vl-8b-v1",
+          "enabled": true,
+          "priority": 196,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+          "displayName": "NVIDIA nvidia/llama-3.1-nemotron-ultra-253b-v1",
+          "enabled": true,
+          "priority": 197,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/llama-3.3-nemotron-super-49b-v1",
+          "displayName": "NVIDIA nvidia/llama-3.3-nemotron-super-49b-v1",
+          "enabled": true,
+          "priority": 198,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+          "displayName": "NVIDIA nvidia/llama-3.3-nemotron-super-49b-v1.5",
+          "enabled": true,
+          "priority": 199,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/llama3-chatqa-1.5-70b",
+          "displayName": "NVIDIA nvidia/llama3-chatqa-1.5-70b",
+          "enabled": true,
+          "priority": 200,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/llama3-chatqa-1.5-8b",
+          "displayName": "NVIDIA nvidia/llama3-chatqa-1.5-8b",
+          "enabled": true,
+          "priority": 201,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/mistral-nemo-minitron-8b-8k-instruct",
+          "displayName": "NVIDIA nvidia/mistral-nemo-minitron-8b-8k-instruct",
+          "enabled": true,
+          "priority": 202,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/mistral-nemo-minitron-8b-base",
+          "displayName": "NVIDIA nvidia/mistral-nemo-minitron-8b-base",
+          "enabled": true,
+          "priority": 203,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/nemotron-3-nano-30b-a3b",
+          "displayName": "NVIDIA nvidia/nemotron-3-nano-30b-a3b",
+          "enabled": true,
+          "priority": 204,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/nemotron-4-340b-instruct",
+          "displayName": "NVIDIA nvidia/nemotron-4-340b-instruct",
+          "enabled": true,
+          "priority": 205,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/nemotron-4-mini-hindi-4b-instruct",
+          "displayName": "NVIDIA nvidia/nemotron-4-mini-hindi-4b-instruct",
+          "enabled": true,
+          "priority": 206,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/nemotron-mini-4b-instruct",
+          "displayName": "NVIDIA nvidia/nemotron-mini-4b-instruct",
+          "enabled": true,
+          "priority": 207,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/nemotron-nano-12b-v2-vl",
+          "displayName": "NVIDIA nvidia/nemotron-nano-12b-v2-vl",
+          "enabled": true,
+          "priority": 208,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/nemotron-nano-3-30b-a3b",
+          "displayName": "NVIDIA nvidia/nemotron-nano-3-30b-a3b",
+          "enabled": true,
+          "priority": 209,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/neva-22b",
+          "displayName": "NVIDIA nvidia/neva-22b",
+          "enabled": true,
+          "priority": 210,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/nvclip",
+          "displayName": "NVIDIA nvidia/nvclip",
+          "enabled": true,
+          "priority": 211,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/nvidia-nemotron-nano-9b-v2",
+          "displayName": "NVIDIA nvidia/nvidia-nemotron-nano-9b-v2",
+          "enabled": true,
+          "priority": 212,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/streampetr",
+          "displayName": "NVIDIA nvidia/streampetr",
+          "enabled": true,
+          "priority": 213,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/usdcode-llama-3.1-70b-instruct",
+          "displayName": "NVIDIA nvidia/usdcode-llama-3.1-70b-instruct",
+          "enabled": true,
+          "priority": 214,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "nvidia/vila",
+          "displayName": "NVIDIA nvidia/vila",
+          "enabled": true,
+          "priority": 215,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "openai/gpt-oss-20b",
+          "displayName": "NVIDIA openai/gpt-oss-20b",
+          "enabled": true,
+          "priority": 216,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "opengpt-x/teuken-7b-instruct-commercial-v0.4",
+          "displayName": "NVIDIA opengpt-x/teuken-7b-instruct-commercial-v0.4",
+          "enabled": true,
+          "priority": 217,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "qwen/qwen2-7b-instruct",
+          "displayName": "NVIDIA qwen/qwen2-7b-instruct",
+          "enabled": true,
+          "priority": 218,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "qwen/qwen2.5-7b-instruct",
+          "displayName": "NVIDIA qwen/qwen2.5-7b-instruct",
+          "enabled": true,
+          "priority": 219,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "qwen/qwen2.5-coder-32b-instruct",
+          "displayName": "NVIDIA qwen/qwen2.5-coder-32b-instruct",
+          "enabled": true,
+          "priority": 220,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "qwen/qwen2.5-coder-7b-instruct",
+          "displayName": "NVIDIA qwen/qwen2.5-coder-7b-instruct",
+          "enabled": true,
+          "priority": 221,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "qwen/qwen3-235b-a22b",
+          "displayName": "NVIDIA qwen/qwen3-235b-a22b",
+          "enabled": true,
+          "priority": 222,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "qwen/qwen3-next-80b-a3b-instruct",
+          "displayName": "NVIDIA qwen/qwen3-next-80b-a3b-instruct",
+          "enabled": true,
+          "priority": 223,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "qwen/qwen3-next-80b-a3b-thinking",
+          "displayName": "NVIDIA qwen/qwen3-next-80b-a3b-thinking",
+          "enabled": true,
+          "priority": 224,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "qwen/qwq-32b",
+          "displayName": "NVIDIA qwen/qwq-32b",
+          "enabled": true,
+          "priority": 225,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "rakuten/rakutenai-7b-chat",
+          "displayName": "NVIDIA rakuten/rakutenai-7b-chat",
+          "enabled": true,
+          "priority": 226,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "rakuten/rakutenai-7b-instruct",
+          "displayName": "NVIDIA rakuten/rakutenai-7b-instruct",
+          "enabled": true,
+          "priority": 227,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "sarvamai/sarvam-m",
+          "displayName": "NVIDIA sarvamai/sarvam-m",
+          "enabled": true,
+          "priority": 228,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "speakleash/bielik-11b-v2.3-instruct",
+          "displayName": "NVIDIA speakleash/bielik-11b-v2.3-instruct",
+          "enabled": true,
+          "priority": 229,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "speakleash/bielik-11b-v2.6-instruct",
+          "displayName": "NVIDIA speakleash/bielik-11b-v2.6-instruct",
+          "enabled": true,
+          "priority": 230,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "stepfun-ai/step-3.5-flash",
+          "displayName": "NVIDIA stepfun-ai/step-3.5-flash",
+          "enabled": true,
+          "priority": 231,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "stockmark/stockmark-2-100b-instruct",
+          "displayName": "NVIDIA stockmark/stockmark-2-100b-instruct",
+          "enabled": true,
+          "priority": 232,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "thudm/chatglm3-6b",
+          "displayName": "NVIDIA thudm/chatglm3-6b",
+          "enabled": true,
+          "priority": 233,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "tiiuae/falcon3-7b-instruct",
+          "displayName": "NVIDIA tiiuae/falcon3-7b-instruct",
+          "enabled": true,
+          "priority": 234,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "tokyotech-llm/llama-3-swallow-70b-instruct-v0.1",
+          "displayName": "NVIDIA tokyotech-llm/llama-3-swallow-70b-instruct-v0.1",
+          "enabled": true,
+          "priority": 235,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "upstage/solar-10.7b-instruct",
+          "displayName": "NVIDIA upstage/solar-10.7b-instruct",
+          "enabled": true,
+          "priority": 236,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "utter-project/eurollm-9b-instruct",
+          "displayName": "NVIDIA utter-project/eurollm-9b-instruct",
+          "enabled": true,
+          "priority": 237,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "writer/palmyra-creative-122b",
+          "displayName": "NVIDIA writer/palmyra-creative-122b",
+          "enabled": true,
+          "priority": 238,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "writer/palmyra-fin-70b-32k",
+          "displayName": "NVIDIA writer/palmyra-fin-70b-32k",
+          "enabled": true,
+          "priority": 239,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "writer/palmyra-med-70b",
+          "displayName": "NVIDIA writer/palmyra-med-70b",
+          "enabled": true,
+          "priority": 240,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "writer/palmyra-med-70b-32k",
+          "displayName": "NVIDIA writer/palmyra-med-70b-32k",
+          "enabled": true,
+          "priority": 241,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "yentinglin/llama-3-taiwan-70b-instruct",
+          "displayName": "NVIDIA yentinglin/llama-3-taiwan-70b-instruct",
+          "enabled": true,
+          "priority": 242,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "z-ai/glm4.7",
+          "displayName": "NVIDIA z-ai/glm4.7",
+          "enabled": true,
+          "priority": 243,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        },
+        {
+          "id": "zyphra/zamba2-7b-instruct",
+          "displayName": "NVIDIA zyphra/zamba2-7b-instruct",
+          "enabled": true,
+          "priority": 244,
+          "freeWindow": {
+            "type": "developer-program-free",
+            "freeUntil": null,
+            "resetCadence": "unknown"
+          },
+          "limits": {
+            "rpm": null,
+            "tpm": null,
+            "dailyTokens": null,
+            "weeklyTokens": null
+          },
+          "notes": "Discovered from NVIDIA /v1/models inventory; disabled by default to keep tester/runtime lean."
+        }
+      ],
+      "modelPolicy": {
+        "mode": "best-models-first + broad-enabled-inventory",
+        "enabledTopModels": [
+          "qwen/qwen3.5-397b-a17b",
+          "mistralai/mistral-large-3-675b-instruct-2512",
+          "meta/llama-4-maverick-17b-128e-instruct",
+          "qwen/qwen3-coder-480b-a35b-instruct",
+          "openai/gpt-oss-120b",
+          "bytedance/seed-oss-36b-instruct",
+          "moonshotai/kimi-k2-instruct-0905",
+          "mistralai/devstral-2-123b-instruct-2512"
+        ],
+        "discoveryCount": 157,
+        "source": "live /v1/models via NVIDIA key",
+        "disabledModels": [],
+        "note": "All discovered NVIDIA chat models enabled except known failing models; priorities keep best models at top."
+      }
+    }
+  ],
+  "searcher": {
+    "output": {
+      "markdown": "agents/searcher/reports/free-models-latest.md",
+      "json": "config/openflow/subagent/free-model-catalog.json"
+    },
+    "ranking": [
+      "quality",
+      "effective_free_tokens",
+      "time_to_expiry",
+      "rpm",
+      "tpm"
+    ]
+  },
+  "tester": {
+    "requestTimeoutMs": 30000,
+    "saveEveryRun": true,
+    "stateFile": "config/openflow/subagent/runtime-state.json"
+  },
+  "strictMode": {
+    "enabled": true,
+    "allowUngatedCalls": false,
+    "enforcement": {
+      "requireRouterForApiCalls": true,
+      "processAuditEnabled": true,
+      "killDirectProviderCli": true,
+      "auditLog": "logs/subagent-strict-audit.log"
+    },
+    "allowedCallPaths": [
+      "scripts/openflow/subagent-safe-chat.sh",
+      "scripts/openflow/subagent-router.sh",
+      "scripts/openflow/subagent-rate-probe.sh",
+      "scripts/openflow/subagent-tester.sh"
+    ]
+  }
+}
