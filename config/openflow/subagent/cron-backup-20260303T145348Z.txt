@@ -1,6 +1,0 @@
-* * * * * /root/.openclaw/workspace/scripts/openflow/subagent-autoswitch-cron.sh
-15 2 * * * /root/.openclaw/workspace/scripts/openflow/subagent-maintenance.sh
-* * * * * /root/.openclaw/workspace/scripts/openflow/subagent-strict-audit.sh
-@reboot /root/.openclaw/workspace/scripts/openflow/dashboard-start.sh
-40 3,15 * * * /root/.openclaw/workspace/scripts/openflow/searcher-daily-sync.sh >> /root/.openclaw/workspace/logs/searcher-daily-sync.log 2>&1 && node /root/.openclaw/workspace/scripts/openflow/searcher-policy-check.js >> /root/.openclaw/workspace/logs/searcher-policy.log 2>&1
-50 3,15 * * * /root/.openclaw/workspace/scripts/openflow/subagent-tester-scheduled.sh
