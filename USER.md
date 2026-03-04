@@ -6,7 +6,7 @@ _Learn about the person you're helping. Update this as you go._
 - **What to call them:** PhanX
 - **Pronouns:** _(optional)_
 - **Timezone:**
-- **Notes:** Prefers concise status updates and checkpoint-based execution for longer implementation work. Wants qmd used as much as practical during coding/research to reduce token usage. For infra stability, prefers low VPS load; pause/disable background dashboard/cron workers quickly when load rises. Prefers best-quality final outputs with token-heavy work pushed to delegated workers while Paplu keeps user-facing replies compact.
+- **Notes:** Prefers concise status updates and checkpoint-based execution for longer implementation work. Wants qmd used as much as practical during coding/research to reduce token usage. For infra stability, prefers low VPS load; pause/disable background dashboard/cron workers quickly when load rises. Prefers best-quality final outputs with token-heavy work pushed to delegated workers while Paplu keeps user-facing replies compact. Prefers long-term workflow where coding-heavy implementation is delegated through `pi` in VPS/VS Code terminal (Google Antigravity auth), with Paplu coordinating and returning compact checkpoints.
 
 ## Context
 

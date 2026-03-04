@@ -36,5 +36,7 @@
 - Next affiliate milestone context: India-first INR pricing and live provider feeds are now scaffolded (React Query + backend sync service), pending provider credentials + priority + optimization rule from user.
 - Current phase execution state: core Phase 1 implemented; Phase 2 conversion/ranking improvements plus Phase 3 blog-detail engine and Phase 4 My Plan strip baseline shipped (commit `a2c7e9c`).
 - Current execution mode preference: implement in clear step-by-step chunks with checkpoint commits and pushes.
+- New durable workflow preference (2026-03-04): for coding-heavy tasks, run implementation primarily via `pi` (`@mariozechner/pi-coding-agent`) on the VPS, ideally from the project terminal in VS Code, to reduce OpenClaw token burn; Paplu should orchestrate, delegate heavy coding there, then report concise checkpoints/results.
+- Auth/runtime note: `pi` is installed globally and Google Antigravity OAuth is configured on this VPS (`google-antigravity`), so delegated coding can start immediately.
 - Current AyurvedaNod execution focus (as of 2026-03-02): mobile app UI/UX polish and theme stabilization for testing readiness on branch `mobile-ui-and-ux-and-other-functionalities`.
 - Latest mobile checkpoints shipped and pushed for testing: `30f5437` (tokenized theming + chat TS cleanup) and `13c4551` (full light/dark rollout + nav polish).
