@@ -16,6 +16,7 @@
 
 ## Projects
 - Main active project: **AyurNod** (AI health translator app), maintained in a separate repo.
+- Current VPS layout (2026-03-11): live AyurNod repo/deploy path is `/var/www/AyurNod`; additional dev clone exists at `/root/AyurNod`.
 
 ## Preferences / Operating Notes
 - Keep workspace continuity in files (`memory/YYYY-MM-DD.md` + this file).
