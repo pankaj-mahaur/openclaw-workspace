@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "summarize": {
+      "version": "1.0.0",
+      "installedAt": 1772463439952
+    },
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1772463443089
+    },
+    "model-usage": {
+      "version": "1.0.0",
+      "installedAt": 1772463446521
+    }
+  }
+}
