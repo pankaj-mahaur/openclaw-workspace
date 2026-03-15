@@ -17,6 +17,7 @@
 ## Projects
 - Main active project: **AyurNod** (AI health translator app), maintained in a separate repo.
 - Current VPS layout (2026-03-11): live AyurNod repo/deploy path is `/var/www/AyurNod`; additional dev clone exists at `/root/AyurNod`.
+- Repo boundary preference (2026-03-14): do not perform routine coding/branch operations in live repo `/var/www/AyurNod`; use `/root/AyurNod` as the working repo unless user explicitly asks otherwise.
 
 ## Preferences / Operating Notes
 - Keep workspace continuity in files (`memory/YYYY-MM-DD.md` + this file).
@@ -24,6 +25,7 @@
   - `memory/YYYY-MM-DD.md` = daily logs
   - `MEMORY.md` = long-term, high-value memory only
 - Use careful commits with clear messages before pushing.
+- New preference (2026-03-15): for portfolio repo work, use feature branches and open PRs (avoid direct pushes to main).
 - OpenClaw tooling preference: keep coding access unlocked by default (`tools.profile: coding`); do not switch to locked/messaging profile unless the user explicitly reconfirms.
 - For **AyurNod** work: always follow a professional and organized workflow (clear plan, clean branch hygiene, meaningful commits, orderly execution).
 - User preference (AyurNod coding): do **not** make code changes without explicit permission.
